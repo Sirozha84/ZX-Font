@@ -833,7 +833,18 @@ namespace ZXFont
 
         private void изTAPToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormLoadTAP form = new FormLoadTAP();
+            FormLoadTAP form = new FormLoadTAP(FormLoadTAP.ImportTypes.Tap);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                Change(false);
+                InitBitmaps();
+                DrawDocument();
+            }
+        }
+
+        private void изБинарногоФайлаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormLoadTAP form = new FormLoadTAP(FormLoadTAP.ImportTypes.Bin);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 Change(false);
@@ -899,9 +910,6 @@ namespace ZXFont
         {
 
             string[] args = Environment.GetCommandLineArgs();
-
-            //string[] args = { "123", "c:\\Users\\Sergey\\Desktop\\ZX Font\\Spectrum (Hires).SpecCHR" };
-
             if (args.Count() == 1) return;
             string file = args[1];
             string ext = System.IO.Path.GetExtension(file).ToLower();

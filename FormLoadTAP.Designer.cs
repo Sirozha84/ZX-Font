@@ -246,7 +246,7 @@
             this.numericUpDown3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.numericUpDown3.Location = new System.Drawing.Point(386, 33);
             this.numericUpDown3.Maximum = new decimal(new int[] {
-            65535,
+            999999,
             0,
             0,
             0});
@@ -297,7 +297,6 @@
             this.Name = "FormLoadTAP";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Импорт шрифта из TAP-файла";
             this.Load += new System.EventHandler(this.FormLoadTAP_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
