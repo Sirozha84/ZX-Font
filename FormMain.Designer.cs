@@ -39,8 +39,8 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.импортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изTAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.изБинарногоФайлаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изBMPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.изБинарногоФайлаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.экспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вTAPфайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вBMPизображениеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,7 +145,6 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.вТекстToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -249,13 +248,6 @@
             this.изTAPToolStripMenuItem.Text = "из TAP-файла";
             this.изTAPToolStripMenuItem.Click += new System.EventHandler(this.изTAPToolStripMenuItem_Click);
             // 
-            // изБинарногоФайлаToolStripMenuItem
-            // 
-            this.изБинарногоФайлаToolStripMenuItem.Name = "изБинарногоФайлаToolStripMenuItem";
-            this.изБинарногоФайлаToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.изБинарногоФайлаToolStripMenuItem.Text = "из бинарного файла";
-            this.изБинарногоФайлаToolStripMenuItem.Click += new System.EventHandler(this.изБинарногоФайлаToolStripMenuItem_Click);
-            // 
             // изBMPToolStripMenuItem
             // 
             this.изBMPToolStripMenuItem.Name = "изBMPToolStripMenuItem";
@@ -263,12 +255,18 @@
             this.изBMPToolStripMenuItem.Text = "из изображения";
             this.изBMPToolStripMenuItem.Click += new System.EventHandler(this.изBMPToolStripMenuItem_Click);
             // 
+            // изБинарногоФайлаToolStripMenuItem
+            // 
+            this.изБинарногоФайлаToolStripMenuItem.Name = "изБинарногоФайлаToolStripMenuItem";
+            this.изБинарногоФайлаToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.изБинарногоФайлаToolStripMenuItem.Text = "из бинарного файла";
+            this.изБинарногоФайлаToolStripMenuItem.Click += new System.EventHandler(this.изБинарногоФайлаToolStripMenuItem_Click);
+            // 
             // экспортToolStripMenuItem
             // 
             this.экспортToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.вTAPфайлToolStripMenuItem,
-            this.вBMPизображениеToolStripMenuItem,
-            this.вТекстToolStripMenuItem});
+            this.вBMPизображениеToolStripMenuItem});
             this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
             this.экспортToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.экспортToolStripMenuItem.Text = "Экспорт";
@@ -1274,12 +1272,6 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // вТекстToolStripMenuItem
-            // 
-            this.вТекстToolStripMenuItem.Name = "вТекстToolStripMenuItem";
-            this.вТекстToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-            this.вТекстToolStripMenuItem.Text = "в текст";
-            // 
             // FormMain
             // 
             this.AllowDrop = true;
@@ -1438,7 +1430,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButton12;
         private System.Windows.Forms.ToolStripButton toolStripButton13;
         private System.Windows.Forms.ToolStripMenuItem изБинарногоФайлаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem вТекстToolStripMenuItem;
     }
 }
 

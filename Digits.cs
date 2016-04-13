@@ -21,5 +21,10 @@
                     return num + Baitov;
             }
         }
+
+        public static string ToHex(int num)
+        {
+            return "00";
+        }
     }
 }

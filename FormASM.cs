@@ -11,9 +11,8 @@ namespace ZXFont
 {
     public partial class FormASM : Form
     {
-        int InString = 0;
-        string ASM = "";
-        string Str = "";
+        string Str;
+        int Code;
         public FormASM()
         {
             InitializeComponent();
@@ -33,7 +32,7 @@ namespace ZXFont
                 try
                 {
                     System.IO.TextWriter file = new System.IO.StreamWriter(saveFileDialog1.FileName);
-                    file.Write(textBox2.Text);
+                    file.Write(textBoxText.Text);
                     file.Close();
                 }
                 catch
@@ -44,8 +43,8 @@ namespace ZXFont
 
         void DrawCode()
         {
-            ASM = "";
-            InString = 0;
+            Str = "";
+            Code = 0;
             if (checkBox1.Checked)
             {
                 //Построчно
@@ -60,8 +59,7 @@ namespace ZXFont
                     for (int l = 0; l < FormMain.CurrentProject.SizeY; l++)
                         AddByte(s + FormMain.CurrentProject.ADD, l);
             }
-            if (InString != 0) ASM += Str;
-            textBox2.Text = ASM;
+            textBoxText.Text = Str;
         }
         void AddByte(int s, int l)
         {
@@ -87,25 +85,21 @@ namespace ZXFont
                 if (b == 8 | b == FormMain.CurrentProject.SizeX - 1)
                 {
                     //Добавляем начало (DEFB или Запятую)
-                    if (InString == 0)
-                    {
-                        Str = "";
-                        for (int i = 0; i < numericUpDown1.Value; i++) Str += " ";
-                        Str += textBox1.Text + " ";
-                        InString = 1;
-                    }
+                    if (Code == 0)
+                        Str += comboBoxStart.Text;
                     else
-                        Str += ", ";
+                        Str += comboBoxSeparator.Text;
                     //Добавляем, собственно, сам байт
                     Str += bb.ToString();
                     //Проверяем, стоит ли переходить на следущую строку
-                    if (Str.Length > numericUpDown2.Value - 5)
-                    {
-                        ASM += Str + (char)13 + (char)10;
-                        InString = 0;
-                    }
                     bb = 0;
                 }
+            }
+            Code++;
+            if (Code == numericUpDownCodes.Value)
+            {
+                Code = 0;
+                Str += Environment.NewLine;
             }
         }
 
@@ -114,22 +108,27 @@ namespace ZXFont
             DrawCode();
         }
 
-        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        private void comboBoxStart_SelectedIndexChanged(object sender, EventArgs e)
         {
             DrawCode();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void numericUpDownCodes_ValueChanged(object sender, EventArgs e)
         {
             DrawCode();
         }
 
-        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        private void comboBoxSeparator_SelectedIndexChanged(object sender, EventArgs e)
         {
             DrawCode();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            DrawCode();
+        }
+
+        private void checkBoxHex_CheckedChanged(object sender, EventArgs e)
         {
             DrawCode();
         }

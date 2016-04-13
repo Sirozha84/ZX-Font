@@ -28,20 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormASM));
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.numericUpDownCodes = new System.Windows.Forms.NumericUpDown();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBoxText = new System.Windows.Forms.TextBox();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.comboBoxSeparator = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.checkBoxHex = new System.Windows.Forms.CheckBox();
+            this.comboBoxStart = new System.Windows.Forms.ComboBox();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCodes)).BeginInit();
             this.SuspendLayout();
             // 
             // button2
@@ -49,7 +48,7 @@
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(753, 444);
+            this.button2.Location = new System.Drawing.Point(762, 412);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 37);
             this.button2.TabIndex = 15;
@@ -62,7 +61,7 @@
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(621, 444);
+            this.button1.Location = new System.Drawing.Point(630, 412);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 37);
             this.button1.TabIndex = 16;
@@ -70,83 +69,49 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 20);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Пробелы:";
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(354, 9);
+            this.label2.Location = new System.Drawing.Point(276, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(188, 20);
+            this.label2.Size = new System.Drawing.Size(155, 20);
             this.label2.TabIndex = 18;
-            this.label2.Text = "Ограничение строки:";
+            this.label2.Text = "Кодов на строке:";
             // 
-            // numericUpDown1
+            // numericUpDownCodes
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown1.Location = new System.Drawing.Point(107, 7);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(65, 26);
-            this.numericUpDown1.TabIndex = 19;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            4,
+            this.numericUpDownCodes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.numericUpDownCodes.Location = new System.Drawing.Point(437, 7);
+            this.numericUpDownCodes.Maximum = new decimal(new int[] {
+            1024,
             0,
             0,
             0});
-            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.numericUpDown2.Location = new System.Drawing.Point(548, 7);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            65536,
+            this.numericUpDownCodes.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
+            this.numericUpDownCodes.Name = "numericUpDownCodes";
+            this.numericUpDownCodes.Size = new System.Drawing.Size(74, 26);
+            this.numericUpDownCodes.TabIndex = 20;
+            this.numericUpDownCodes.Value = new decimal(new int[] {
             32,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(74, 26);
-            this.numericUpDown2.TabIndex = 20;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            256,
-            0,
-            0,
-            0});
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox1.Location = new System.Drawing.Point(281, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(67, 26);
-            this.textBox1.TabIndex = 21;
-            this.textBox1.Text = "DEFB";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.numericUpDownCodes.ValueChanged += new System.EventHandler(this.numericUpDownCodes_ValueChanged);
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.checkBox1.Location = new System.Drawing.Point(628, 8);
+            this.checkBox1.Location = new System.Drawing.Point(704, 8);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(263, 24);
+            this.checkBox1.Size = new System.Drawing.Size(120, 24);
             this.checkBox1.TabIndex = 22;
-            this.checkBox1.Text = "Построчно (как в SCREEN$)";
+            this.checkBox1.Text = "Построчно";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
@@ -154,49 +119,100 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(178, 9);
+            this.label3.Location = new System.Drawing.Point(12, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 20);
+            this.label3.Size = new System.Drawing.Size(140, 20);
             this.label3.TabIndex = 23;
-            this.label3.Text = "Оператор:";
+            this.label3.Text = "Начало строки:";
             // 
-            // textBox2
+            // textBoxText
             // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.textBoxText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Location = new System.Drawing.Point(12, 39);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox2.Size = new System.Drawing.Size(867, 399);
-            this.textBox2.TabIndex = 24;
+            this.textBoxText.Location = new System.Drawing.Point(12, 39);
+            this.textBoxText.Multiline = true;
+            this.textBoxText.Name = "textBoxText";
+            this.textBoxText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBoxText.Size = new System.Drawing.Size(876, 367);
+            this.textBoxText.TabIndex = 24;
+            // 
+            // comboBoxSeparator
+            // 
+            this.comboBoxSeparator.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxSeparator.FormattingEnabled = true;
+            this.comboBoxSeparator.Items.AddRange(new object[] {
+            ", ",
+            "; "});
+            this.comboBoxSeparator.Location = new System.Drawing.Point(649, 6);
+            this.comboBoxSeparator.Name = "comboBoxSeparator";
+            this.comboBoxSeparator.Size = new System.Drawing.Size(47, 28);
+            this.comboBoxSeparator.TabIndex = 25;
+            this.comboBoxSeparator.Text = ", ";
+            this.comboBoxSeparator.SelectedIndexChanged += new System.EventHandler(this.comboBoxSeparator_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(517, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(126, 20);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Разделитель:";
+            // 
+            // checkBoxHex
+            // 
+            this.checkBoxHex.AutoSize = true;
+            this.checkBoxHex.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxHex.Location = new System.Drawing.Point(830, 8);
+            this.checkBoxHex.Name = "checkBoxHex";
+            this.checkBoxHex.Size = new System.Drawing.Size(63, 24);
+            this.checkBoxHex.TabIndex = 27;
+            this.checkBoxHex.Text = "HEX";
+            this.checkBoxHex.UseVisualStyleBackColor = true;
+            this.checkBoxHex.CheckedChanged += new System.EventHandler(this.checkBoxHex_CheckedChanged);
+            // 
+            // comboBoxStart
+            // 
+            this.comboBoxStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxStart.FormattingEnabled = true;
+            this.comboBoxStart.Items.AddRange(new object[] {
+            "",
+            "    DEFB ",
+            "DEFB "});
+            this.comboBoxStart.Location = new System.Drawing.Point(158, 6);
+            this.comboBoxStart.Name = "comboBoxStart";
+            this.comboBoxStart.Size = new System.Drawing.Size(112, 28);
+            this.comboBoxStart.TabIndex = 28;
+            this.comboBoxStart.Text = "    DEFB ";
+            this.comboBoxStart.SelectedIndexChanged += new System.EventHandler(this.comboBoxStart_SelectedIndexChanged);
             // 
             // FormASM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 493);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(900, 461);
+            this.Controls.Add(this.comboBoxStart);
+            this.Controls.Add(this.checkBoxHex);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBoxSeparator);
+            this.Controls.Add(this.textBoxText);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numericUpDownCodes);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.button2);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(907, 531);
+            this.MinimumSize = new System.Drawing.Size(916, 500);
             this.Name = "FormASM";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Генератор кода Assembler\'а";
             this.Load += new System.EventHandler(this.FormASM_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCodes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,14 +222,15 @@
 
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.NumericUpDown numericUpDownCodes;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxText;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ComboBox comboBoxSeparator;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox checkBoxHex;
+        private System.Windows.Forms.ComboBox comboBoxStart;
     }
 }
