@@ -833,18 +833,18 @@ namespace ZXFont
 
         private void изTAPToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormLoadTAP form = new FormLoadTAP(FormLoadTAP.ImportTypes.Tap);
-            if (form.ShowDialog() == DialogResult.OK)
-            {
-                Change(false);
-                InitBitmaps();
-                DrawDocument();
-            }
+            ImportFromFile(FormLoadTAP.ImportTypes.Tap);
         }
 
         private void изБинарногоФайлаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormLoadTAP form = new FormLoadTAP(FormLoadTAP.ImportTypes.Bin);
+            ImportFromFile(FormLoadTAP.ImportTypes.Bin);
+        }
+
+        //Импорт из файла
+        void ImportFromFile(FormLoadTAP.ImportTypes type)
+        {
+            FormLoadTAP form = new FormLoadTAP(type);
             if (form.ShowDialog() == DialogResult.OK)
             {
                 Change(false);
@@ -941,7 +941,7 @@ namespace ZXFont
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
             string file = files[0];
             string ext = System.IO.Path.GetExtension(file).ToLower();
-            if (ext == ".specchr" & SaveQuestion())
+            if (ext == ".specchr" && SaveQuestion())
             {
                 if (!CurrentProject.Open(file)) return;
                 Project.EditName = file;
@@ -952,7 +952,37 @@ namespace ZXFont
                 Change(true);
                 return;
             }
-            MessageBox.Show("Файл не поддерживается", Editor.ProgramName);
+            if (ext == ".tap")
+            {
+                FormLoadTAP form = new FormLoadTAP(FormLoadTAP.ImportTypes.Tap, file);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    InitBitmaps();
+                    DrawDocument();
+                    Change(true);
+                }
+                return;
+            }
+            if (ext == ".bmp" | ext == ".png" | ext == ".jpg" | ext == ".jpeg" | ext == ".gif")
+            {
+                FormLoadBMP form = new FormLoadBMP(file);
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    Change(false);
+                    InitBitmaps();
+                    DrawDocument();
+                }
+                return;
+            }
+            //Если ничего не подошло, импортируем как бинарник
+            using (FormLoadTAP form = new FormLoadTAP(FormLoadTAP.ImportTypes.Bin, file))
+                if (form.ShowDialog() == DialogResult.OK)
+                {
+                    InitBitmaps();
+                    DrawDocument();
+                    Change(true);
+                }
+            //MessageBox.Show("Файл не поддерживается", Editor.ProgramName);
         }
     }
 }

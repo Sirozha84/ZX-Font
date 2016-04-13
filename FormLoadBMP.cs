@@ -12,10 +12,17 @@ namespace ZXFont
     public partial class FormLoadBMP : Form
     {
         Bitmap BMP;
+        string FileName;
+
         public FormLoadBMP()
         {
             InitializeComponent();
-            comboBox1.SelectedIndex = 0;
+        }
+
+        public FormLoadBMP(string FileName)
+        {
+            InitializeComponent();
+            this.FileName = FileName;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -37,7 +44,10 @@ namespace ZXFont
                             if (i + FormMain.CurrentProject.ADD <= 255)
                             {
                                 FormMain.CurrentProject.Font[i + FormMain.CurrentProject.ADD, yy, xx] = 0;
-                                if (BMP.GetPixel(x + xx, y + yy) == Color.FromArgb(255,0,0,0))
+                                int brig = BMP.GetPixel(x + xx, y + yy).R +
+                                    BMP.GetPixel(x + xx, y + yy).G +
+                                    BMP.GetPixel(x + xx, y + yy).B;
+                                if (brig < 382)
                                     FormMain.CurrentProject.Font[i + FormMain.CurrentProject.ADD, yy, xx] = 1;
                             }
                     i++;
@@ -75,23 +85,34 @@ namespace ZXFont
 
         private void FormLoadBMP_Load(object sender, EventArgs e)
         {
-            openFileDialog1.FileName = "";
-            openFileDialog1.Title = "Импорт из BMP-файла.";
-            openFileDialog1.Filter = "Точечный рисунок (*.bmp)|*.bmp|Все файлы (*.*)|*.*";
-            if (openFileDialog1.ShowDialog() != DialogResult.OK) this.Close();
+            bool OK;
+            if (FileName == null)
+                using (OpenFileDialog dialog = new OpenFileDialog())
+                {
+                    comboBox1.SelectedIndex = 0;
+                    dialog.FileName = "";
+                    dialog.Title = "Импорт из картинки";
+                    dialog.Filter = "Файлы изображений|*.bmp;*.png;*.jpg;*.jpeg;*.gif|Все файлы|*.*";
+                    OK = dialog.ShowDialog() == DialogResult.OK;
+                    FileName = dialog.FileName;
+                }
             else
+                OK = true;
+            if (OK)
             {
                 try
                 {
-                    BMP = new Bitmap(openFileDialog1.FileName);
+                    BMP = new Bitmap(FileName);
                     DrawBMP();
                 }
                 catch
                 {
                     Editor.Error("Произошла ошибка при загрузке файла.");
-                    Close();
+                    Dispose();
                 }
             }
+            else
+                Dispose();
         }
     }
 }

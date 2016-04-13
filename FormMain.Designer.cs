@@ -39,6 +39,7 @@
             this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripSeparator();
             this.импортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изTAPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.изБинарногоФайлаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.изBMPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.экспортToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вTAPфайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -144,7 +145,7 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.изБинарногоФайлаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.вТекстToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -235,8 +236,8 @@
             // 
             this.импортToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.изTAPToolStripMenuItem,
-            this.изБинарногоФайлаToolStripMenuItem,
-            this.изBMPToolStripMenuItem});
+            this.изBMPToolStripMenuItem,
+            this.изБинарногоФайлаToolStripMenuItem});
             this.импортToolStripMenuItem.Name = "импортToolStripMenuItem";
             this.импортToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.импортToolStripMenuItem.Text = "Импорт";
@@ -248,18 +249,26 @@
             this.изTAPToolStripMenuItem.Text = "из TAP-файла";
             this.изTAPToolStripMenuItem.Click += new System.EventHandler(this.изTAPToolStripMenuItem_Click);
             // 
+            // изБинарногоФайлаToolStripMenuItem
+            // 
+            this.изБинарногоФайлаToolStripMenuItem.Name = "изБинарногоФайлаToolStripMenuItem";
+            this.изБинарногоФайлаToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.изБинарногоФайлаToolStripMenuItem.Text = "из бинарного файла";
+            this.изБинарногоФайлаToolStripMenuItem.Click += new System.EventHandler(this.изБинарногоФайлаToolStripMenuItem_Click);
+            // 
             // изBMPToolStripMenuItem
             // 
             this.изBMPToolStripMenuItem.Name = "изBMPToolStripMenuItem";
             this.изBMPToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.изBMPToolStripMenuItem.Text = "из BMP-файла";
+            this.изBMPToolStripMenuItem.Text = "из изображения";
             this.изBMPToolStripMenuItem.Click += new System.EventHandler(this.изBMPToolStripMenuItem_Click);
             // 
             // экспортToolStripMenuItem
             // 
             this.экспортToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.вTAPфайлToolStripMenuItem,
-            this.вBMPизображениеToolStripMenuItem});
+            this.вBMPизображениеToolStripMenuItem,
+            this.вТекстToolStripMenuItem});
             this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
             this.экспортToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.экспортToolStripMenuItem.Text = "Экспорт";
@@ -267,15 +276,15 @@
             // вTAPфайлToolStripMenuItem
             // 
             this.вTAPфайлToolStripMenuItem.Name = "вTAPфайлToolStripMenuItem";
-            this.вTAPфайлToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.вTAPфайлToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.вTAPфайлToolStripMenuItem.Text = "в TAP-файл";
             this.вTAPфайлToolStripMenuItem.Click += new System.EventHandler(this.вTAPфайлToolStripMenuItem_Click);
             // 
             // вBMPизображениеToolStripMenuItem
             // 
             this.вBMPизображениеToolStripMenuItem.Name = "вBMPизображениеToolStripMenuItem";
-            this.вBMPизображениеToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.вBMPизображениеToolStripMenuItem.Text = "в BMP-файл";
+            this.вBMPизображениеToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.вBMPизображениеToolStripMenuItem.Text = "в изображение";
             this.вBMPизображениеToolStripMenuItem.Click += new System.EventHandler(this.вBMPизображениеToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
@@ -1265,12 +1274,11 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
             // 
-            // изБинарногоФайлаToolStripMenuItem
+            // вТекстToolStripMenuItem
             // 
-            this.изБинарногоФайлаToolStripMenuItem.Name = "изБинарногоФайлаToolStripMenuItem";
-            this.изБинарногоФайлаToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.изБинарногоФайлаToolStripMenuItem.Text = "из бинарного файла";
-            this.изБинарногоФайлаToolStripMenuItem.Click += new System.EventHandler(this.изБинарногоФайлаToolStripMenuItem_Click);
+            this.вТекстToolStripMenuItem.Name = "вТекстToolStripMenuItem";
+            this.вТекстToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.вТекстToolStripMenuItem.Text = "в текст";
             // 
             // FormMain
             // 
@@ -1430,6 +1438,7 @@
         private System.Windows.Forms.ToolStripButton toolStripButton12;
         private System.Windows.Forms.ToolStripButton toolStripButton13;
         private System.Windows.Forms.ToolStripMenuItem изБинарногоФайлаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem вТекстToolStripMenuItem;
     }
 }
 

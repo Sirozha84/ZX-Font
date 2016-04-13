@@ -6,35 +6,54 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ZXFont
 {
     public partial class FormLoadTAP : Form
     {
+        public enum ImportTypes { Tap, Bin }
+        ImportTypes ImportType;
+        string FileName;
         byte[, ,] FONT = new byte[256, 16, 16];
         List<byte[]> Blocks = new List<byte[]>();
         List<int> Adr = new List<int>();
-
-        public FormLoadTAP()
+        
+        public FormLoadTAP(ImportTypes ImportType)
         {
             InitializeComponent();
-            comboBox1.SelectedIndex = 0;
+            this.ImportType = ImportType;
+            if (ImportType == ImportTypes.Tap)
+                Text = "Импорт шрифта из TAP-файла";
+            else
+                Text = "Импорт шрифта из бинарного файла";
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public FormLoadTAP(ImportTypes ImportType, string FileName)
+        {
+            InitializeComponent();
+            this.FileName = FileName;
+            this.ImportType = ImportType;
+            if (ImportType == ImportTypes.Tap)
+                Text = "Импорт шрифта из TAP-файла";
+            else
+                Text = "Импорт шрифта из бинарного файла";
+        }
+
+        private void buttonClose_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonOK_Click(object sender, EventArgs e)
         {
             //Перекачка найденного в проект
             FormMain.CurrentProject.SizeX = (byte)numericUpDown1.Value;
             FormMain.CurrentProject.SizeY = (byte)numericUpDown2.Value;
             FormMain.CurrentProject.Symbols = 96;
             FormMain.CurrentProject.ADD = 32;
-            if (comboBox1.SelectedIndex == 1) FormMain.CurrentProject.Symbols = 224;
-            if (comboBox1.SelectedIndex == 2) { FormMain.CurrentProject.Symbols = 256; FormMain.CurrentProject.ADD = 0; }
+            if (comboBoxSymCounts.SelectedIndex == 1) FormMain.CurrentProject.Symbols = 224;
+            if (comboBoxSymCounts.SelectedIndex == 2) { FormMain.CurrentProject.Symbols = 256; FormMain.CurrentProject.ADD = 0; }
             for (int s = 0; s < 256; s++)
                 for (int l = 0; l < 16; l++)
                     for (int b = 0; b < 16; b++)
@@ -42,39 +61,61 @@ namespace ZXFont
             DialogResult = DialogResult.OK;
             Close();
         }
-        //Загрузка тапки
+        
+        //Загрузка файла
         private void FormLoadTAP_Load(object sender, EventArgs e)
         {
-            openFileDialog1.FileName = "";
-            openFileDialog1.Title = "Импорт из TAP-файла.";
-            openFileDialog1.Filter = "Образ ленты (*.tap)|*.tap|Все файлы (*.*)|*.*";
-            if (openFileDialog1.ShowDialog() != DialogResult.OK) Close();
-            else
+            comboBoxSymCounts.SelectedIndex = 0;
+            bool OK = FileName != null;
+            if (!OK)
             {
+                OpenFileDialog dialog = new OpenFileDialog();
+                dialog.Title = Text;
+                if (ImportType == ImportTypes.Tap)
+                    dialog.Filter = "Образ ленты (*.tap)|*.tap|Все файлы (*.*)|*.*";
+                else
+                    dialog.Filter = "Все файлы (*.*)|*.*";
+                OK = dialog.ShowDialog() == DialogResult.OK;
+                if (OK) FileName = dialog.FileName;
+            }
+            if (OK)
+            {
+                
                 try
                 {
-                    System.IO.BinaryReader file = new System.IO.BinaryReader(new System.IO.FileStream(openFileDialog1.FileName, System.IO.FileMode.Open));
-                    while (file.BaseStream.Position < file.BaseStream.Length)
+                    using (BinaryReader file = new BinaryReader(new FileStream(FileName, FileMode.Open)))
                     {
-                        int LEN = file.ReadUInt16();
-                        byte FB = file.ReadByte();
-                        byte[] Bytes = file.ReadBytes(LEN - 2);
-                        file.ReadByte();
-                        if (FB > 0)
+                        if (ImportType == ImportTypes.Tap)
+                            //Загрузка Tap-файла
+                            while (file.BaseStream.Position < file.BaseStream.Length)
+                            {
+                                int LEN = file.ReadUInt16();
+                                byte FB = file.ReadByte();
+                                byte[] Bytes = file.ReadBytes(LEN - 2);
+                                file.ReadByte();
+                                if (FB > 0)
+                                {
+                                    Blocks.Add(Bytes);
+                                    listBox1.Items.Add("Блок " + Digits.Numeration(Bytes.Length));
+                                }
+                            }
+                        else
+                        //Загрузка бинарного файла
                         {
-                            Blocks.Add(Bytes);
-                            listBox1.Items.Add("Блок в " + Bytes.Length + " байт(а)");
+                            Blocks.Add(file.ReadBytes((int)file.BaseStream.Length));
+                            listBox1.Items.Add("Файл " + Digits.Numeration((int)file.BaseStream.Length));
                         }
                     }
-                    file.Close();
                     listBox1.SelectedIndex = 0;
                 }
                 catch
                 {
                     Editor.Error("Произошла ошибка при загрузке файла.");
-                    Close();
+                    Dispose();
                 }
             }
+            else
+                Dispose();
         }
         //Автоматический поиск шрифта в блоке...
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -89,7 +130,7 @@ namespace ZXFont
                 if (nul & Blocks[listBox1.SelectedIndex][i + 8] > 0)
                 {
                     Adr.Add(i);
-                    listBox2.Items.Add("Байт №" + i.ToString());
+                    listBox2.Items.Add("Байт " + i.ToString());
                 }
             }
             numericUpDown3.Value = 0;
@@ -115,8 +156,8 @@ namespace ZXFont
             int CB = listBox1.SelectedIndex;
             if (CB < 0) return;
             FONT = new byte[256, 16, 16];
-            if (comboBox1.SelectedIndex == 1) SM = 224;
-            if (comboBox1.SelectedIndex == 2) { SM = 256; ADD = 0; }
+            if (comboBoxSymCounts.SelectedIndex == 1) SM = 224;
+            if (comboBoxSymCounts.SelectedIndex == 2) { SM = 256; ADD = 0; }
             //Чтение шрифта из блока
             int B = (int)numericUpDown3.Value;
             if (!checkBox1.Checked)
@@ -210,6 +251,11 @@ namespace ZXFont
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             Drawfont();
+        }
+
+        private void numericUpDown3_KeyDown(object sender, KeyEventArgs e)
+        {
+            numericUpDown3_ValueChanged(null, null);
         }
     }
 }
