@@ -855,7 +855,7 @@ namespace ZXFont
 
         private void генерироватьКодAssemblerаToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FormASM form = new FormASM();
+            FormTextGenerator form = new FormTextGenerator();
             form.ShowDialog();
         }
 

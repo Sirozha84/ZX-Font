@@ -601,7 +601,7 @@
             this.генерироватьКодAssemblerаToolStripMenuItem.Image = global::ZXFont.Properties.Resources.Code;
             this.генерироватьКодAssemblerаToolStripMenuItem.Name = "генерироватьКодAssemblerаToolStripMenuItem";
             this.генерироватьКодAssemblerаToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
-            this.генерироватьКодAssemblerаToolStripMenuItem.Text = "Генератор кода Assembler\'а";
+            this.генерироватьКодAssemblerаToolStripMenuItem.Text = "Текстовый генератор";
             this.генерироватьКодAssemblerаToolStripMenuItem.Click += new System.EventHandler(this.генерироватьКодAssemblerаToolStripMenuItem_Click);
             // 
             // калькуляторPOKEToolStripMenuItem

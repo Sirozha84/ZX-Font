@@ -1,19 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace ZXFont
 {
-    public partial class FormASM : Form
+    public partial class FormTextGenerator : Form
     {
         string Str;
         int Code;
-        public FormASM()
+        public FormTextGenerator()
         {
             InitializeComponent();
         }
@@ -25,15 +20,14 @@ namespace ZXFont
         //Сохранение полученного текста
         private void button1_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.FileName = "";
-            saveFileDialog1.Title = "Сохранение кода Assembler'а";
-            saveFileDialog1.Filter = "Код Assembler'а (*.asm)|*.asm|Все файлы(*.*)|*.*";
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.FileName = "";
+            dialog.Title = "Сохранение текстового файла";
+            dialog.Filter = "Текстовый файл|*.txt|Все файлы|*.*";
+            if (dialog.ShowDialog() == DialogResult.OK)
                 try
                 {
-                    System.IO.TextWriter file = new System.IO.StreamWriter(saveFileDialog1.FileName);
-                    file.Write(textBoxText.Text);
-                    file.Close();
+                    File.WriteAllText(dialog.FileName, textBoxText.Text);
                 }
                 catch
                 {
@@ -90,17 +84,21 @@ namespace ZXFont
                     else
                         Str += comboBoxSeparator.Text;
                     //Добавляем, собственно, сам байт
-                    Str += bb.ToString();
+                    if (checkBoxHex.Checked)
+                        Str += Digits.ToHex(bb);
+                    else
+                        Str += bb.ToString();
                     //Проверяем, стоит ли переходить на следущую строку
                     bb = 0;
+                    Code++;
+                    if (Code >= numericUpDownCodes.Value)
+                    {
+                        Code = 0;
+                        Str += comboBoxEnd.Text + Environment.NewLine;
+                    }
                 }
             }
-            Code++;
-            if (Code == numericUpDownCodes.Value)
-            {
-                Code = 0;
-                Str += Environment.NewLine;
-            }
+            //Code++;
         }
 
         private void FormASM_Load(object sender, EventArgs e)
@@ -108,17 +106,7 @@ namespace ZXFont
             DrawCode();
         }
 
-        private void comboBoxStart_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DrawCode();
-        }
-
         private void numericUpDownCodes_ValueChanged(object sender, EventArgs e)
-        {
-            DrawCode();
-        }
-
-        private void comboBoxSeparator_SelectedIndexChanged(object sender, EventArgs e)
         {
             DrawCode();
         }
@@ -131,6 +119,26 @@ namespace ZXFont
         private void checkBoxHex_CheckedChanged(object sender, EventArgs e)
         {
             DrawCode();
+        }
+
+        private void comboBoxStart_TextChanged(object sender, EventArgs e)
+        {
+            DrawCode();
+        }
+
+        private void comboBoxSeparator_TextChanged(object sender, EventArgs e)
+        {
+            DrawCode();
+        }
+
+        private void comboBoxEnd_TextChanged(object sender, EventArgs e)
+        {
+            DrawCode();
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
