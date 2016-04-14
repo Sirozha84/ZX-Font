@@ -27,16 +27,17 @@ namespace ZXFont
         Bitmap BitmapFont;
         Bitmap BitmapSymbol;
         Graphics Canvas;
+
+        //Инициализация параметров
         public FormMain()
         {
             InitializeComponent();
-            Editor.init();
-            Left = WindowsPosition.X;
-            Top = WindowsPosition.Y;
-            Width = WindowsPosition.Width;
-            Height = WindowsPosition.Heidht;
-            if (WindowsPosition.Max) WindowState = FormWindowState.Maximized; else WindowState = FormWindowState.Normal;
-            splitter1.SplitPosition = WindowsPosition.Splitter;
+            //Загрузка настроек
+            Left = Properties.Settings.Default.X;
+            Top = Properties.Settings.Default.Y;
+            Width = Properties.Settings.Default.Width;
+            Height = Properties.Settings.Default.Height;
+            splitter1.SplitPosition = Properties.Settings.Default.Splitter;
             menunew_Click(null, null);
         }
         //Создание нового файла
@@ -55,7 +56,7 @@ namespace ZXFont
         {
             if (!SaveQuestion()) return;
             openFileDialog1.FileName = "";
-            openFileDialog1.Filter = Editor.FileType;
+            openFileDialog1.Filter = Program.FileType;
             if (openFileDialog1.ShowDialog() != DialogResult.OK) return;
             if (!CurrentProject.Open(openFileDialog1.FileName)) return;
             Project.EditName = openFileDialog1.FileName;
@@ -68,7 +69,7 @@ namespace ZXFont
         //Сохранение файла
         bool FileSave()
         {
-            if (Project.EditName == Editor.FileUnnamed && !FileSaveAs()) return false;
+            if (Project.EditName == Program.FileUnnamed && !FileSaveAs()) return false;
             if (!CurrentProject.Save()) return false;
             Change(true);
             return true;
@@ -77,7 +78,7 @@ namespace ZXFont
         bool FileSaveAs()
         {
             saveFileDialog1.FileName = "";
-            saveFileDialog1.Filter = Editor.FileType;
+            saveFileDialog1.Filter = Program.FileType;
             if (saveFileDialog1.ShowDialog() == DialogResult.OK) { Project.EditName = saveFileDialog1.FileName; Change(true); return true; }
             return false;
         }
@@ -131,15 +132,19 @@ namespace ZXFont
         private void menuhelp_Click(object sender, EventArgs e)
         {
             try { HelpClose(); Help.StartInfo.FileName = "help.chm"; Help.Start(); }
-            catch { Editor.Error("Файл справки не найден."); } 
+            catch { Program.Error("Файл справки не найден."); } 
         }
         //Закрытие программы
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (!SaveQuestion()) e.Cancel = true;
-            if (WindowState == FormWindowState.Maximized) WindowsPosition.Max = true;
-            else WindowsPosition.Max = false;
-            Editor.saveconfig();
+            //Запись настроек
+            Properties.Settings.Default.X = Left;
+            Properties.Settings.Default.Y = Top;
+            Properties.Settings.Default.Width = Width;
+            Properties.Settings.Default.Height = Height;
+            Properties.Settings.Default.Splitter = splitter1.SplitPosition;
+            Properties.Settings.Default.Save();
             HelpClose();
         }
 
@@ -182,7 +187,7 @@ namespace ZXFont
                             BitmapFont.SetPixel(x * mn + 1, y * mn + 1, pix);
                         }
                     }
-            pictureBox1.Image = BitmapFont;
+            pictureBoxFont.Image = BitmapFont;
             DrawSymbol();
         }
         //Рисование символа
@@ -218,7 +223,7 @@ namespace ZXFont
                 Canvas.DrawLine(Pens.Gray, i, 0, i, CurrentProject.SizeY * px);
             for (int i = px; i < CurrentProject.SizeY * px; i += px)
                 Canvas.DrawLine(Pens.Gray, 0, i, CurrentProject.SizeX * px + 0, i);
-            pictureBox2.Image = BitmapSymbol;
+            pictureBoxSumbol.Image = BitmapSymbol;
             label2.Text = CurrentSymbol.ToString();
             label3.Text = "" + (char)CurrentSymbol;
             //Рисование кодов
@@ -275,7 +280,7 @@ namespace ZXFont
         {
             string star = ""; 
             if (Project.Changed) star = "*";
-            Text = System.IO.Path.GetFileNameWithoutExtension(Project.EditName) + star + " - " + Editor.ProgramName; 
+            Text = System.IO.Path.GetFileNameWithoutExtension(Project.EditName) + star + " - " + Program.Name; 
         }
         //Регистрация изменений
         void Change(bool Reset) 
@@ -293,15 +298,6 @@ namespace ZXFont
             Copy.Copy(CurrentProject);
             History.Add(Copy);
             HistoryNumber++;
-        }
-        //регистрация изменений окна
-        private void MainForm_ResizeEnd(object sender, EventArgs e)
-        {
-            WindowsPosition.X = Left;
-            WindowsPosition.Y = Top;
-            WindowsPosition.Width = Width;
-            WindowsPosition.Heidht = Height;
-            WindowsPosition.Max = false;
         }
         //Вопрос перед уничтожением проекта
         public bool SaveQuestion()
@@ -343,34 +339,11 @@ namespace ZXFont
         private void toolStripStatusLabel1_Click(object sender, EventArgs e) { System.Diagnostics.Process.Start("http://www.sg-software.ru"); }
         private void menuopen_Click(object sender, EventArgs e) { OpenFile(); }
 
-        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == System.Windows.Forms.MouseButtons.Left) Tool = 1;
-            if (e.Button == System.Windows.Forms.MouseButtons.Right) Tool = 2;
-            PixelOnPicture(pictureBox1.Width, pictureBox1.Height, 32, CurrentProject.Symbols / 32, e.Location);
-            SetPixel(PixelOnPicture(pictureBox2.Width, pictureBox2.Height, CurrentProject.SizeX, CurrentProject.SizeY, e.Location));
-        }
-
         private void SetPixel(Point Coord)
         {
             if (Tool == 1) CurrentProject.Font[CurrentSymbol, Coord.Y, Coord.X] = 1;
             if (Tool == 2) CurrentProject.Font[CurrentSymbol, Coord.Y, Coord.X] = 0;
             DrawSymbol();
-        }
-
-        private void pictureBox2_MouseUp(object sender, MouseEventArgs e) 
-        {
-            if (Tool > 0)
-            {
-                Tool = 0;
-                DrawDocument();
-                Change(false);
-            }
-        }
-
-        private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
-        {
-            SetPixel(PixelOnPicture(pictureBox2.Width, pictureBox2.Height, CurrentProject.SizeX, CurrentProject.SizeY, e.Location));
         }
 
         //Вычисляем нажатый пиксель на картинке пикчербокса
@@ -522,20 +495,8 @@ namespace ZXFont
 
         private void pictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
-            Point P = PixelOnPicture(pictureBox1.Width, pictureBox1.Height, 32 * CurrentProject.SizeX, CurrentProject.Symbols / 32 * CurrentProject.SizeY, e.Location);
+            Point P = PixelOnPicture(pictureBoxFont.Width, pictureBoxFont.Height, 32 * CurrentProject.SizeX, CurrentProject.Symbols / 32 * CurrentProject.SizeY, e.Location);
             CurrentSymbol = P.X / CurrentProject.SizeX + P.Y / CurrentProject.SizeY * 32 + CurrentProject.ADD;
-            DrawSymbol();
-        }
-
-        private void параметрыToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            int temp = CurrentProject.Symbols;
-            FormFontParameters form = new FormFontParameters();
-            if (form.ShowDialog() == DialogResult.Cancel) return;
-            Change(false);
-            if (temp != CurrentProject.Symbols) CurrentSymbol = CurrentProject.ADD;
-            InitBitmaps();
-            DrawDocument();
             DrawSymbol();
         }
 
@@ -691,8 +652,6 @@ namespace ZXFont
             DrawDocument();
             Change(false);
         }
-        //Движение сплиттера
-        private void splitter1_SplitterMoved(object sender, SplitterEventArgs e) { WindowsPosition.Splitter = splitter1.SplitPosition; }
 
         private void жирностьToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -891,7 +850,7 @@ namespace ZXFont
             Change(false);
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e) { параметрыToolStripMenuItem_Click(null, null); }
+        private void toolStripButton1_Click(object sender, EventArgs e) { шрифтToolStripMenuItem1_Click(null, null); }
         private void toolStripButton2_Click(object sender, EventArgs e) { скроллВверхToolStripMenuItem_Click(null, null); }
         private void toolStripButton3_Click(object sender, EventArgs e) { скроллВнизToolStripMenuItem_Click(null, null); }
         private void toolStripButton4_Click(object sender, EventArgs e) { скроллВлевоToolStripMenuItem_Click(null, null); }
@@ -924,7 +883,7 @@ namespace ZXFont
                 Change(true);
                 return;
             }
-            MessageBox.Show("Файл не поддерживается", Editor.ProgramName);
+            MessageBox.Show("Файл не поддерживается", Program.Name);
         }
 
         //Drag-n-Drop
@@ -983,6 +942,46 @@ namespace ZXFont
                     Change(true);
                 }
             //MessageBox.Show("Файл не поддерживается", Editor.ProgramName);
+        }
+
+        private void pictureBoxSumbol_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left) Tool = 1;
+            if (e.Button == MouseButtons.Right) Tool = 2;
+            PixelOnPicture(pictureBoxFont.Width, pictureBoxFont.Height, 32, CurrentProject.Symbols / 32, e.Location);
+            SetPixel(PixelOnPicture(pictureBoxSumbol.Width, pictureBoxSumbol.Height, CurrentProject.SizeX, CurrentProject.SizeY, e.Location));
+        }
+
+        private void pictureBoxSumbol_MouseMove(object sender, MouseEventArgs e)
+        {
+            SetPixel(PixelOnPicture(pictureBoxSumbol.Width, pictureBoxSumbol.Height, CurrentProject.SizeX, CurrentProject.SizeY, e.Location));
+        }
+
+        private void pictureBoxSumbol_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (Tool > 0)
+            {
+                Tool = 0;
+                DrawDocument();
+                Change(false);
+            }
+        }
+
+        private void шрифтToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            int temp = CurrentProject.Symbols;
+            FormFontParameters form = new FormFontParameters();
+            if (form.ShowDialog() == DialogResult.Cancel) return;
+            Change(false);
+            if (temp != CurrentProject.Symbols) CurrentSymbol = CurrentProject.ADD;
+            InitBitmaps();
+            DrawDocument();
+            DrawSymbol();
+        }
+
+        private void кодыВHEXToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            кодыВHEXToolStripMenuItem.Checked ^= true;
         }
     }
 }

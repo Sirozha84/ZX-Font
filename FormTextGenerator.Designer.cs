@@ -52,7 +52,7 @@
             this.buttonCancel.Location = new System.Drawing.Point(606, 412);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(126, 37);
-            this.buttonCancel.TabIndex = 15;
+            this.buttonCancel.TabIndex = 8;
             this.buttonCancel.Text = "Закрыть";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.button2_Click);
@@ -64,7 +64,7 @@
             this.buttonSave.Location = new System.Drawing.Point(474, 412);
             this.buttonSave.Name = "buttonSave";
             this.buttonSave.Size = new System.Drawing.Size(126, 37);
-            this.buttonSave.TabIndex = 16;
+            this.buttonSave.TabIndex = 7;
             this.buttonSave.Text = "Сохранить";
             this.buttonSave.UseVisualStyleBackColor = true;
             this.buttonSave.Click += new System.EventHandler(this.button1_Click);
@@ -95,7 +95,7 @@
             0});
             this.numericUpDownCodes.Name = "numericUpDownCodes";
             this.numericUpDownCodes.Size = new System.Drawing.Size(74, 26);
-            this.numericUpDownCodes.TabIndex = 20;
+            this.numericUpDownCodes.TabIndex = 2;
             this.numericUpDownCodes.Value = new decimal(new int[] {
             16,
             0,
@@ -110,7 +110,7 @@
             this.checkBox1.Location = new System.Drawing.Point(565, 8);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(120, 24);
-            this.checkBox1.TabIndex = 22;
+            this.checkBox1.TabIndex = 4;
             this.checkBox1.Text = "Построчно";
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -138,7 +138,7 @@
             this.textBoxText.Name = "textBoxText";
             this.textBoxText.ScrollBars = System.Windows.Forms.ScrollBars.Both;
             this.textBoxText.Size = new System.Drawing.Size(720, 332);
-            this.textBoxText.TabIndex = 24;
+            this.textBoxText.TabIndex = 6;
             this.textBoxText.WordWrap = false;
             // 
             // comboBoxSeparator
@@ -151,7 +151,7 @@
             this.comboBoxSeparator.Location = new System.Drawing.Point(461, 40);
             this.comboBoxSeparator.Name = "comboBoxSeparator";
             this.comboBoxSeparator.Size = new System.Drawing.Size(74, 28);
-            this.comboBoxSeparator.TabIndex = 25;
+            this.comboBoxSeparator.TabIndex = 3;
             this.comboBoxSeparator.Text = ", ";
             this.comboBoxSeparator.TextChanged += new System.EventHandler(this.comboBoxSeparator_TextChanged);
             // 
@@ -172,7 +172,7 @@
             this.checkBoxHex.Location = new System.Drawing.Point(565, 42);
             this.checkBoxHex.Name = "checkBoxHex";
             this.checkBoxHex.Size = new System.Drawing.Size(63, 24);
-            this.checkBoxHex.TabIndex = 27;
+            this.checkBoxHex.TabIndex = 5;
             this.checkBoxHex.Text = "HEX";
             this.checkBoxHex.UseVisualStyleBackColor = true;
             this.checkBoxHex.CheckedChanged += new System.EventHandler(this.checkBoxHex_CheckedChanged);
@@ -196,7 +196,7 @@
             this.comboBoxStart.Location = new System.Drawing.Point(158, 6);
             this.comboBoxStart.Name = "comboBoxStart";
             this.comboBoxStart.Size = new System.Drawing.Size(112, 28);
-            this.comboBoxStart.TabIndex = 28;
+            this.comboBoxStart.TabIndex = 0;
             this.comboBoxStart.TextChanged += new System.EventHandler(this.comboBoxStart_TextChanged);
             // 
             // comboBoxEnd
@@ -216,7 +216,7 @@
             this.comboBoxEnd.Location = new System.Drawing.Point(158, 40);
             this.comboBoxEnd.Name = "comboBoxEnd";
             this.comboBoxEnd.Size = new System.Drawing.Size(112, 28);
-            this.comboBoxEnd.TabIndex = 30;
+            this.comboBoxEnd.TabIndex = 1;
             this.comboBoxEnd.TextChanged += new System.EventHandler(this.comboBoxEnd_TextChanged);
             // 
             // label4

@@ -31,7 +31,7 @@ namespace ZXFont
                 }
                 catch
                 {
-                    Editor.Error("Ошибка при сохранении файла. Файл не сохранён.");
+                    Program.Error("Ошибка при сохранении файла. Файл не сохранён.");
                 }
         }
 
@@ -134,11 +134,6 @@ namespace ZXFont
         private void comboBoxEnd_TextChanged(object sender, EventArgs e)
         {
             DrawCode();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }

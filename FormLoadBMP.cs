@@ -107,7 +107,7 @@ namespace ZXFont
                 }
                 catch
                 {
-                    Editor.Error("Произошла ошибка при загрузке файла.");
+                    Program.Error("Произошла ошибка при загрузке файла.");
                     Dispose();
                 }
             }

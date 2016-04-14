@@ -13,10 +13,10 @@ namespace ZXFont
         public FormAbout()
         {
             InitializeComponent();
-            this.Text = "О " + Editor.ProgramName;
-            label1.Text = Editor.ProgramName;
-            label2.Text = "Версия " + Editor.ProgramVersion;
-            label3.Text = "Автор программы: " + Editor.ProgramAutor;
+            this.Text = "О " + Program.Name;
+            label1.Text = Program.Name;
+            label2.Text = "Версия " + Program.Version;
+            label3.Text = "Автор программы: " + Program.Autor;
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
