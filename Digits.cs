@@ -2,6 +2,11 @@
 {
     class Digits
     {
+        /// <summary>
+        /// Человеческое обозначение исчисления количества байт, о как :-)
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
         public static string Numeration(int num)
         {
             string Bait = " байт";

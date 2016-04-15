@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ZXFont
@@ -384,20 +381,19 @@ namespace ZXFont
 
         private void FormMain_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.PageUp & CurrentSymbol > CurrentProject.ADD)
-            {
-                CurrentSymbol--;
-                DrawSymbol();
-            }
-            if (e.KeyCode == Keys.PageDown & CurrentSymbol < (CurrentProject.Symbols+CurrentProject.ADD-1))
-            {
-                CurrentSymbol++;
-                DrawSymbol();
-            }
-            if (e.KeyCode == Keys.Up) скроллВверхToolStripMenuItem_Click(null, null);
-            if (e.KeyCode == Keys.Left) скроллВлевоToolStripMenuItem_Click(null, null);
-            if (e.KeyCode == Keys.Down) скроллВнизToolStripMenuItem_Click(null, null);
-            if (e.KeyCode == Keys.Right) скроллВправоToolStripMenuItem_Click(null, null);
+            if (e.KeyCode == Keys.PageUp) CurrentSymbol--;
+            if (e.KeyCode == Keys.PageDown) CurrentSymbol++;
+            if (e.KeyCode == Keys.Up) CurrentSymbol -= 32;
+            if (e.KeyCode == Keys.Left) CurrentSymbol--;
+            if (e.KeyCode == Keys.Down) CurrentSymbol += 32;
+            if (e.KeyCode == Keys.Right) CurrentSymbol++;
+            if (e.KeyCode == Keys.Home) CurrentSymbol = CurrentProject.ADD;
+            if (e.KeyCode == Keys.End) CurrentSymbol = CurrentProject.Symbols + CurrentProject.ADD - 1;
+            if (CurrentSymbol < CurrentProject.ADD)
+                CurrentSymbol = CurrentProject.ADD;
+            if (CurrentSymbol > CurrentProject.Symbols + CurrentProject.ADD - 1)
+                CurrentSymbol = CurrentProject.Symbols + CurrentProject.ADD - 1;
+
             if (e.KeyCode == Keys.Space & !e.Shift) CurrentSymbol = 32;
             if (e.KeyCode == Keys.D1 & e.Shift) CurrentSymbol = 33;
             if (e.KeyCode == Keys.Oem7 & e.Shift) CurrentSymbol = 34;
@@ -424,7 +420,6 @@ namespace ZXFont
             if (e.KeyCode == Keys.D7 & !e.Shift) CurrentSymbol = 55;
             if (e.KeyCode == Keys.D8 & !e.Shift) CurrentSymbol = 56;
             if (e.KeyCode == Keys.D9 & !e.Shift) CurrentSymbol = 57;
-
             if (e.KeyCode == Keys.Oem1 & e.Shift) CurrentSymbol = 58;
             if (e.KeyCode == Keys.Oem1 & !e.Shift) CurrentSymbol = 59;
             if (e.KeyCode == Keys.Oemcomma & e.Shift) CurrentSymbol = 60;
@@ -433,66 +428,41 @@ namespace ZXFont
             if (e.KeyCode == Keys.OemQuestion & e.Shift) CurrentSymbol = 63;
             if (e.KeyCode == Keys.D2 & e.Shift) CurrentSymbol = 64;
 
-            if (e.KeyCode == Keys.A & e.Shift) CurrentSymbol = 65;
-            if (e.KeyCode == Keys.B & e.Shift) CurrentSymbol = 66;
-            if (e.KeyCode == Keys.C & e.Shift) CurrentSymbol = 67;
-            if (e.KeyCode == Keys.D & e.Shift) CurrentSymbol = 68;
-            if (e.KeyCode == Keys.E & e.Shift) CurrentSymbol = 69;
-            if (e.KeyCode == Keys.F & e.Shift) CurrentSymbol = 70;
-            if (e.KeyCode == Keys.G & e.Shift) CurrentSymbol = 71;
-            if (e.KeyCode == Keys.H & e.Shift) CurrentSymbol = 72;
-            if (e.KeyCode == Keys.I & e.Shift) CurrentSymbol = 73;
-            if (e.KeyCode == Keys.J & e.Shift) CurrentSymbol = 74;
-            if (e.KeyCode == Keys.K & e.Shift) CurrentSymbol = 75;
-            if (e.KeyCode == Keys.L & e.Shift) CurrentSymbol = 76;
-            if (e.KeyCode == Keys.M & e.Shift) CurrentSymbol = 77;
-            if (e.KeyCode == Keys.N & e.Shift) CurrentSymbol = 78;
-            if (e.KeyCode == Keys.O & e.Shift) CurrentSymbol = 79;
-            if (e.KeyCode == Keys.P & e.Shift) CurrentSymbol = 80;
-            if (e.KeyCode == Keys.Q & e.Shift) CurrentSymbol = 81;
-            if (e.KeyCode == Keys.R & e.Shift) CurrentSymbol = 82;
-            if (e.KeyCode == Keys.S & e.Shift) CurrentSymbol = 83;
-            if (e.KeyCode == Keys.T & e.Shift) CurrentSymbol = 84;
-            if (e.KeyCode == Keys.U & e.Shift) CurrentSymbol = 85;
-            if (e.KeyCode == Keys.V & e.Shift) CurrentSymbol = 86;
-            if (e.KeyCode == Keys.W & e.Shift) CurrentSymbol = 87;
-            if (e.KeyCode == Keys.X & e.Shift) CurrentSymbol = 88;
-            if (e.KeyCode == Keys.Y & e.Shift) CurrentSymbol = 89;
-            if (e.KeyCode == Keys.Z & e.Shift) CurrentSymbol = 90;
+            bool Shift = e.Shift | Console.CapsLock;
+            if (e.Shift & Console.CapsLock) Shift = false;
+
+            if (e.KeyCode == Keys.A) CurrentSymbol = Shift ? 65 : 97;
+            if (e.KeyCode == Keys.B) CurrentSymbol = Shift ? 66 : 98;
+            if (e.KeyCode == Keys.C) CurrentSymbol = Shift ? 67 : 99;
+            if (e.KeyCode == Keys.D) CurrentSymbol = Shift ? 68 : 100;
+            if (e.KeyCode == Keys.E) CurrentSymbol = Shift ? 69 : 101;
+            if (e.KeyCode == Keys.F) CurrentSymbol = Shift ? 70 : 102;
+            if (e.KeyCode == Keys.G) CurrentSymbol = Shift ? 71 : 103;
+            if (e.KeyCode == Keys.H) CurrentSymbol = Shift ? 72 : 104;
+            if (e.KeyCode == Keys.I) CurrentSymbol = Shift ? 73 : 105;
+            if (e.KeyCode == Keys.J) CurrentSymbol = Shift ? 74 : 106;
+            if (e.KeyCode == Keys.K) CurrentSymbol = Shift ? 75 : 107;
+            if (e.KeyCode == Keys.L) CurrentSymbol = Shift ? 76 : 108;
+            if (e.KeyCode == Keys.M) CurrentSymbol = Shift ? 77 : 109;
+            if (e.KeyCode == Keys.N) CurrentSymbol = Shift ? 78 : 110;
+            if (e.KeyCode == Keys.O) CurrentSymbol = Shift ? 79 : 111;
+            if (e.KeyCode == Keys.P) CurrentSymbol = Shift ? 80 : 112;
+            if (e.KeyCode == Keys.Q) CurrentSymbol = Shift ? 81 : 113;
+            if (e.KeyCode == Keys.R) CurrentSymbol = Shift ? 82 : 114;
+            if (e.KeyCode == Keys.S) CurrentSymbol = Shift ? 83 : 115;
+            if (e.KeyCode == Keys.T) CurrentSymbol = Shift ? 84 : 116;
+            if (e.KeyCode == Keys.U) CurrentSymbol = Shift ? 85 : 117;
+            if (e.KeyCode == Keys.V) CurrentSymbol = Shift ? 86 : 118;
+            if (e.KeyCode == Keys.W) CurrentSymbol = Shift ? 87 : 119;
+            if (e.KeyCode == Keys.X) CurrentSymbol = Shift ? 88 : 120;
+            if (e.KeyCode == Keys.Y) CurrentSymbol = Shift ? 89 : 121;
+            if (e.KeyCode == Keys.Z) CurrentSymbol = Shift ? 90 : 122;
 
             if (e.KeyCode == Keys.OemOpenBrackets & !e.Shift) CurrentSymbol = 91;
             if (e.KeyCode == Keys.Oem5 & !e.Shift) CurrentSymbol = 92;
             if (e.KeyCode == Keys.Oem6 & !e.Shift) CurrentSymbol = 93;
             if (e.KeyCode == Keys.D6 & e.Shift) CurrentSymbol = 94;
             if (e.KeyCode == Keys.OemMinus & e.Shift) CurrentSymbol = 95;
-
-            if (e.KeyCode == Keys.A & !e.Shift)  CurrentSymbol = 97;
-            if (e.KeyCode == Keys.B & !e.Shift)  CurrentSymbol = 98;
-            if (e.KeyCode == Keys.C & !e.Shift)  CurrentSymbol = 99;
-            if (e.KeyCode == Keys.D & !e.Shift)  CurrentSymbol = 100;
-            if (e.KeyCode == Keys.E & !e.Shift)  CurrentSymbol = 101;
-            if (e.KeyCode == Keys.F & !e.Shift)  CurrentSymbol = 102;
-            if (e.KeyCode == Keys.G & !e.Shift)  CurrentSymbol = 103;
-            if (e.KeyCode == Keys.H & !e.Shift)  CurrentSymbol = 104;
-            if (e.KeyCode == Keys.I & !e.Shift)  CurrentSymbol = 105;
-            if (e.KeyCode == Keys.J & !e.Shift)  CurrentSymbol = 106;
-            if (e.KeyCode == Keys.K & !e.Shift)  CurrentSymbol = 107;
-            if (e.KeyCode == Keys.L & !e.Shift)  CurrentSymbol = 108;
-            if (e.KeyCode == Keys.M & !e.Shift)  CurrentSymbol = 109;
-            if (e.KeyCode == Keys.N & !e.Shift)  CurrentSymbol = 110;
-            if (e.KeyCode == Keys.O & !e.Shift)  CurrentSymbol = 111;
-            if (e.KeyCode == Keys.P & !e.Shift)  CurrentSymbol = 112;
-            if (e.KeyCode == Keys.Q & !e.Shift)  CurrentSymbol = 113;
-            if (e.KeyCode == Keys.R & !e.Shift)  CurrentSymbol = 114;
-            if (e.KeyCode == Keys.S & !e.Shift)  CurrentSymbol = 115;
-            if (e.KeyCode == Keys.T & !e.Shift)  CurrentSymbol = 116;
-            if (e.KeyCode == Keys.U & !e.Shift)  CurrentSymbol = 117;
-            if (e.KeyCode == Keys.V & !e.Shift)  CurrentSymbol = 118;
-            if (e.KeyCode == Keys.W & !e.Shift)  CurrentSymbol = 119;
-            if (e.KeyCode == Keys.X & !e.Shift)  CurrentSymbol = 120;
-            if (e.KeyCode == Keys.Y & !e.Shift)  CurrentSymbol = 121;
-            if (e.KeyCode == Keys.Z & !e.Shift)  CurrentSymbol = 122;
-
             if (e.KeyCode == Keys.OemOpenBrackets & e.Shift) CurrentSymbol = 123;
             if (e.KeyCode == Keys.Oem5 & e.Shift) CurrentSymbol = 124;
             if (e.KeyCode == Keys.Oem6 & e.Shift) CurrentSymbol = 125;
@@ -505,10 +475,6 @@ namespace ZXFont
             Point P = PixelOnPicture(pictureBoxFont.Width, pictureBoxFont.Height, 32 * CurrentProject.SizeX, CurrentProject.Symbols / 32 * CurrentProject.SizeY, e.Location);
             CurrentSymbol = P.X / CurrentProject.SizeX + P.Y / CurrentProject.SizeY * 32 + CurrentProject.ADD;
             DrawSymbol();
-        }
-
-        private void pictureBox1_MouseUp(object sender, MouseEventArgs e)
-        {
             DrawDocument();
         }
 
@@ -538,7 +504,9 @@ namespace ZXFont
             ScrollRight(CurrentSymbol);
             DrawDocument();
             Change(false);
-        }        //Скролл вверх
+        }        
+        
+        //Скролл вверх
         void ScrollUp(int num)
         {
             for (int i = 0; i < CurrentProject.SizeX; i++)
@@ -549,6 +517,7 @@ namespace ZXFont
                 CurrentProject.Font[num, CurrentProject.SizeY - 1, i] = temp;
             }
         }
+        
         //Скролл вниз
         void ScrollDown(int num)
         {
@@ -611,7 +580,6 @@ namespace ZXFont
                         CurrentProject.Font[nm, i, j] = temp[min - j - 1, i];
                     else
                         CurrentProject.Font[nm, i, j] = temp[j, min - i - 1];
-                    
         }
         //Удаление
         private void очиститьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -774,12 +742,6 @@ namespace ZXFont
             buffer.Save(saveFileDialog1.FileName);
         }
 
-        private void калькуляторPOKEToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormPoke form = new FormPoke();
-            form.ShowDialog();
-        }
-
         private void вTAPфайлToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormSaveTAP form = new FormSaveTAP();
@@ -819,12 +781,6 @@ namespace ZXFont
             }
         }
 
-        private void генерироватьКодAssemblerаToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FormTextGenerator form = new FormTextGenerator();
-            form.ShowDialog();
-        }
-
         private void toolStripMenuItem8_Click(object sender, EventArgs e)
         {
             for (int i = 0; i < CurrentProject.Symbols; i++)
@@ -857,7 +813,7 @@ namespace ZXFont
             Change(false);
         }
 
-        private void toolStripButton1_Click(object sender, EventArgs e) { шрифтToolStripMenuItem1_Click(null, null); }
+        private void toolStripButton1_Click(object sender, EventArgs e) { параметрыШрифтаToolStripMenuItem_Click(null, null); }
         private void toolStripButton2_Click(object sender, EventArgs e) { скроллВверхToolStripMenuItem_Click(null, null); }
         private void toolStripButton3_Click(object sender, EventArgs e) { скроллВнизToolStripMenuItem_Click(null, null); }
         private void toolStripButton4_Click(object sender, EventArgs e) { скроллВлевоToolStripMenuItem_Click(null, null); }
@@ -969,12 +925,30 @@ namespace ZXFont
             if (Tool > 0)
             {
                 Tool = 0;
-                DrawDocument();
                 Change(false);
+                DrawDocument();
             }
         }
 
-        private void шрифтToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void кодыВHEXToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CodeInHex.Checked ^= true;
+            DrawSymbol();
+        }
+
+        private void текстовыйГенераторToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTextGenerator form = new FormTextGenerator();
+            form.ShowDialog();
+        }
+
+        private void калькуляторPOKEToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FormPoke form = new FormPoke();
+            form.ShowDialog();
+        }
+
+        private void параметрыШрифтаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int temp = CurrentProject.Symbols;
             FormFontParameters form = new FormFontParameters();
@@ -986,10 +960,16 @@ namespace ZXFont
             DrawSymbol();
         }
 
-        private void кодыВHEXToolStripMenuItem_Click(object sender, EventArgs e)
+        //Создание нового чистого шрифта
+        private void новыйЧистыйToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CodeInHex.Checked ^= true;
-            DrawSymbol();
+            if (!SaveQuestion()) return;
+            CurrentProject.NewProject();
+            CurrentSymbol = CurrentProject.ADD;
+            InitBitmaps();
+            DrawDocument();
+            ResetHistory();
+            Change(true);
         }
     }
 }

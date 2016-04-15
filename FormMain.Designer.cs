@@ -54,9 +54,6 @@
             this.menucopy = new System.Windows.Forms.ToolStripMenuItem();
             this.menupaste = new System.Windows.Forms.ToolStripMenuItem();
             this.символToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.следующийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.предыдущийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.скроллВверхToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.скроллВнизToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.скроллВлевоToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,10 +75,11 @@
             this.жирностьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.наклонToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripSeparator();
-            this.генерироватьКодAssemblerаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.калькуляторPOKEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.параметрыШрифтаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.инструментыToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.текстовыйГенераторToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.калькуляторPOKEToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.шрифтToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.CodeInHex = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuhelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,6 +144,7 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelFont = new System.Windows.Forms.Panel();
             this.pictureBoxFont = new System.Windows.Forms.PictureBox();
+            this.новыйЧистыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -162,6 +161,7 @@
             this.правкаToolStripMenuItem,
             this.символToolStripMenuItem,
             this.инструментыToolStripMenuItem,
+            this.инструментыToolStripMenuItem1,
             this.параметрыToolStripMenuItem1,
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -175,6 +175,7 @@
             // 
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menunew,
+            this.новыйЧистыйToolStripMenuItem,
             this.menuopen,
             this.toolStripSeparator2,
             this.menusave,
@@ -365,9 +366,6 @@
             // символToolStripMenuItem
             // 
             this.символToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.следующийToolStripMenuItem,
-            this.предыдущийToolStripMenuItem,
-            this.toolStripMenuItem2,
             this.скроллВверхToolStripMenuItem,
             this.скроллВнизToolStripMenuItem,
             this.скроллВлевоToolStripMenuItem,
@@ -385,59 +383,44 @@
             this.символToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
             this.символToolStripMenuItem.Text = "Символ";
             // 
-            // следующийToolStripMenuItem
-            // 
-            this.следующийToolStripMenuItem.Name = "следующийToolStripMenuItem";
-            this.следующийToolStripMenuItem.ShortcutKeyDisplayString = "PageDown";
-            this.следующийToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.следующийToolStripMenuItem.Text = "Следующий";
-            // 
-            // предыдущийToolStripMenuItem
-            // 
-            this.предыдущийToolStripMenuItem.Name = "предыдущийToolStripMenuItem";
-            this.предыдущийToolStripMenuItem.ShortcutKeyDisplayString = "PageUp";
-            this.предыдущийToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.предыдущийToolStripMenuItem.Text = "Предыдущий";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(256, 6);
-            // 
             // скроллВверхToolStripMenuItem
             // 
             this.скроллВверхToolStripMenuItem.Image = global::ZXFont.Properties.Resources.up;
             this.скроллВверхToolStripMenuItem.Name = "скроллВверхToolStripMenuItem";
-            this.скроллВверхToolStripMenuItem.ShortcutKeyDisplayString = "Up";
+            this.скроллВверхToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.скроллВверхToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Up)));
             this.скроллВверхToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.скроллВверхToolStripMenuItem.Text = "Скролл вверх";
+            this.скроллВверхToolStripMenuItem.Text = "Сдвиг вверх";
             this.скроллВверхToolStripMenuItem.Click += new System.EventHandler(this.скроллВверхToolStripMenuItem_Click);
             // 
             // скроллВнизToolStripMenuItem
             // 
             this.скроллВнизToolStripMenuItem.Image = global::ZXFont.Properties.Resources.down;
             this.скроллВнизToolStripMenuItem.Name = "скроллВнизToolStripMenuItem";
-            this.скроллВнизToolStripMenuItem.ShortcutKeyDisplayString = "Down";
+            this.скроллВнизToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.скроллВнизToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Down)));
             this.скроллВнизToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.скроллВнизToolStripMenuItem.Text = "Скролл вниз";
+            this.скроллВнизToolStripMenuItem.Text = "Сдвиг вниз";
             this.скроллВнизToolStripMenuItem.Click += new System.EventHandler(this.скроллВнизToolStripMenuItem_Click);
             // 
             // скроллВлевоToolStripMenuItem
             // 
             this.скроллВлевоToolStripMenuItem.Image = global::ZXFont.Properties.Resources.left;
             this.скроллВлевоToolStripMenuItem.Name = "скроллВлевоToolStripMenuItem";
-            this.скроллВлевоToolStripMenuItem.ShortcutKeyDisplayString = "Left";
+            this.скроллВлевоToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.скроллВлевоToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Left)));
             this.скроллВлевоToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.скроллВлевоToolStripMenuItem.Text = "Скролл влево";
+            this.скроллВлевоToolStripMenuItem.Text = "Сдвиг влево";
             this.скроллВлевоToolStripMenuItem.Click += new System.EventHandler(this.скроллВлевоToolStripMenuItem_Click);
             // 
             // скроллВправоToolStripMenuItem
             // 
             this.скроллВправоToolStripMenuItem.Image = global::ZXFont.Properties.Resources.right;
             this.скроллВправоToolStripMenuItem.Name = "скроллВправоToolStripMenuItem";
-            this.скроллВправоToolStripMenuItem.ShortcutKeyDisplayString = "Right";
+            this.скроллВправоToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.скроллВправоToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Right)));
             this.скроллВправоToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.скроллВправоToolStripMenuItem.Text = "Скролл вправо";
+            this.скроллВправоToolStripMenuItem.Text = "Сдвиг вправо";
             this.скроллВправоToolStripMenuItem.Click += new System.EventHandler(this.скроллВправоToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
@@ -510,59 +493,62 @@
             this.жирностьToolStripMenuItem,
             this.наклонToolStripMenuItem,
             this.toolStripMenuItem6,
-            this.генерироватьКодAssemblerаToolStripMenuItem,
-            this.калькуляторPOKEToolStripMenuItem});
+            this.параметрыШрифтаToolStripMenuItem});
             this.инструментыToolStripMenuItem.Name = "инструментыToolStripMenuItem";
-            this.инструментыToolStripMenuItem.Size = new System.Drawing.Size(95, 20);
-            this.инструментыToolStripMenuItem.Text = "Инструменты";
+            this.инструментыToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.инструментыToolStripMenuItem.Text = "Шрифт";
             // 
             // toolStripMenuItem8
             // 
             this.toolStripMenuItem8.Image = global::ZXFont.Properties.Resources.up;
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            this.toolStripMenuItem8.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Up)));
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(290, 22);
-            this.toolStripMenuItem8.Text = "Глобальный скролл вверх";
+            this.toolStripMenuItem8.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Up)));
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(242, 22);
+            this.toolStripMenuItem8.Text = "Сдвиг вверх";
             this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // toolStripMenuItem9
             // 
             this.toolStripMenuItem9.Image = global::ZXFont.Properties.Resources.down;
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Down)));
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(290, 22);
-            this.toolStripMenuItem9.Text = "Глобальный скролл вниз";
+            this.toolStripMenuItem9.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Down)));
+            this.toolStripMenuItem9.Size = new System.Drawing.Size(242, 22);
+            this.toolStripMenuItem9.Text = "Сдвиг вниз";
             this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
             // 
             // toolStripMenuItem10
             // 
             this.toolStripMenuItem10.Image = global::ZXFont.Properties.Resources.left;
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            this.toolStripMenuItem10.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Left)));
-            this.toolStripMenuItem10.Size = new System.Drawing.Size(290, 22);
-            this.toolStripMenuItem10.Text = "Глобальный скролл влево";
+            this.toolStripMenuItem10.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Left)));
+            this.toolStripMenuItem10.Size = new System.Drawing.Size(242, 22);
+            this.toolStripMenuItem10.Text = "Сдвиг влево";
             this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
             // 
             // toolStripMenuItem11
             // 
             this.toolStripMenuItem11.Image = global::ZXFont.Properties.Resources.right;
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
-            this.toolStripMenuItem11.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Right)));
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(290, 22);
-            this.toolStripMenuItem11.Text = "Глобальный скролл вправо";
+            this.toolStripMenuItem11.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Right)));
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(242, 22);
+            this.toolStripMenuItem11.Text = "Сдвиг вправо";
             this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(287, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(239, 6);
             // 
             // жирностьToolStripMenuItem
             // 
             this.жирностьToolStripMenuItem.Image = global::ZXFont.Properties.Resources.B;
             this.жирностьToolStripMenuItem.Name = "жирностьToolStripMenuItem";
             this.жирностьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-            this.жирностьToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
+            this.жирностьToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.жирностьToolStripMenuItem.Text = "Жирность";
             this.жирностьToolStripMenuItem.Click += new System.EventHandler(this.жирностьToolStripMenuItem_Click);
             // 
@@ -571,52 +557,61 @@
             this.наклонToolStripMenuItem.Image = global::ZXFont.Properties.Resources.I;
             this.наклонToolStripMenuItem.Name = "наклонToolStripMenuItem";
             this.наклонToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.наклонToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
+            this.наклонToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
             this.наклонToolStripMenuItem.Text = "Наклон";
             this.наклонToolStripMenuItem.Click += new System.EventHandler(this.наклонToolStripMenuItem_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(287, 6);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(239, 6);
             // 
-            // генерироватьКодAssemblerаToolStripMenuItem
+            // параметрыШрифтаToolStripMenuItem
             // 
-            this.генерироватьКодAssemblerаToolStripMenuItem.Image = global::ZXFont.Properties.Resources.Code;
-            this.генерироватьКодAssemblerаToolStripMenuItem.Name = "генерироватьКодAssemblerаToolStripMenuItem";
-            this.генерироватьКодAssemblerаToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
-            this.генерироватьКодAssemblerаToolStripMenuItem.Text = "Текстовый генератор";
-            this.генерироватьКодAssemblerаToolStripMenuItem.Click += new System.EventHandler(this.генерироватьКодAssemblerаToolStripMenuItem_Click);
+            this.параметрыШрифтаToolStripMenuItem.Image = global::ZXFont.Properties.Resources.Настройки;
+            this.параметрыШрифтаToolStripMenuItem.Name = "параметрыШрифтаToolStripMenuItem";
+            this.параметрыШрифтаToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.параметрыШрифтаToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
+            this.параметрыШрифтаToolStripMenuItem.Text = "Параметры шрифта";
+            this.параметрыШрифтаToolStripMenuItem.Click += new System.EventHandler(this.параметрыШрифтаToolStripMenuItem_Click);
             // 
-            // калькуляторPOKEToolStripMenuItem
+            // инструментыToolStripMenuItem1
             // 
-            this.калькуляторPOKEToolStripMenuItem.Image = global::ZXFont.Properties.Resources.Poke;
-            this.калькуляторPOKEToolStripMenuItem.Name = "калькуляторPOKEToolStripMenuItem";
-            this.калькуляторPOKEToolStripMenuItem.Size = new System.Drawing.Size(290, 22);
-            this.калькуляторPOKEToolStripMenuItem.Text = "Калькулятор POKE";
-            this.калькуляторPOKEToolStripMenuItem.Click += new System.EventHandler(this.калькуляторPOKEToolStripMenuItem_Click);
+            this.инструментыToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.текстовыйГенераторToolStripMenuItem,
+            this.калькуляторPOKEToolStripMenuItem1});
+            this.инструментыToolStripMenuItem1.Name = "инструментыToolStripMenuItem1";
+            this.инструментыToolStripMenuItem1.Size = new System.Drawing.Size(95, 20);
+            this.инструментыToolStripMenuItem1.Text = "Инструменты";
+            // 
+            // текстовыйГенераторToolStripMenuItem
+            // 
+            this.текстовыйГенераторToolStripMenuItem.Image = global::ZXFont.Properties.Resources.Code;
+            this.текстовыйГенераторToolStripMenuItem.Name = "текстовыйГенераторToolStripMenuItem";
+            this.текстовыйГенераторToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.текстовыйГенераторToolStripMenuItem.Text = "Текстовый генератор";
+            this.текстовыйГенераторToolStripMenuItem.Click += new System.EventHandler(this.текстовыйГенераторToolStripMenuItem_Click);
+            // 
+            // калькуляторPOKEToolStripMenuItem1
+            // 
+            this.калькуляторPOKEToolStripMenuItem1.Image = global::ZXFont.Properties.Resources.Poke;
+            this.калькуляторPOKEToolStripMenuItem1.Name = "калькуляторPOKEToolStripMenuItem1";
+            this.калькуляторPOKEToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
+            this.калькуляторPOKEToolStripMenuItem1.Text = "Калькулятор POKE";
+            this.калькуляторPOKEToolStripMenuItem1.Click += new System.EventHandler(this.калькуляторPOKEToolStripMenuItem1_Click);
             // 
             // параметрыToolStripMenuItem1
             // 
             this.параметрыToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.шрифтToolStripMenuItem1,
             this.CodeInHex});
             this.параметрыToolStripMenuItem1.Name = "параметрыToolStripMenuItem1";
             this.параметрыToolStripMenuItem1.Size = new System.Drawing.Size(83, 20);
             this.параметрыToolStripMenuItem1.Text = "Параметры";
             // 
-            // шрифтToolStripMenuItem1
-            // 
-            this.шрифтToolStripMenuItem1.Image = global::ZXFont.Properties.Resources.Настройки;
-            this.шрифтToolStripMenuItem1.Name = "шрифтToolStripMenuItem1";
-            this.шрифтToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.шрифтToolStripMenuItem1.Text = "Шрифт";
-            this.шрифтToolStripMenuItem1.Click += new System.EventHandler(this.шрифтToolStripMenuItem1_Click);
-            // 
             // CodeInHex
             // 
             this.CodeInHex.Name = "CodeInHex";
-            this.CodeInHex.Size = new System.Drawing.Size(152, 22);
+            this.CodeInHex.Size = new System.Drawing.Size(137, 22);
             this.CodeInHex.Text = "Коды в HEX";
             this.CodeInHex.Click += new System.EventHandler(this.кодыВHEXToolStripMenuItem_Click);
             // 
@@ -1279,7 +1274,13 @@
             this.pictureBoxFont.TabIndex = 0;
             this.pictureBoxFont.TabStop = false;
             this.pictureBoxFont.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
-            this.pictureBoxFont.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseUp);
+            // 
+            // новыйЧистыйToolStripMenuItem
+            // 
+            this.новыйЧистыйToolStripMenuItem.Name = "новыйЧистыйToolStripMenuItem";
+            this.новыйЧистыйToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.новыйЧистыйToolStripMenuItem.Text = "Новый чистый";
+            this.новыйЧистыйToolStripMenuItem.Click += new System.EventHandler(this.новыйЧистыйToolStripMenuItem_Click);
             // 
             // FormMain
             // 
@@ -1357,14 +1358,11 @@
         private System.Windows.Forms.ToolStripButton toolundo;
         private System.Windows.Forms.ToolStripButton toolredo;
         private System.Windows.Forms.ToolStripMenuItem символToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem следующийToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem предыдущийToolStripMenuItem;
         private System.Windows.Forms.Panel panelEditor;
         private System.Windows.Forms.Splitter splitter1;
         private System.Windows.Forms.Panel panelFont;
         private System.Windows.Forms.PictureBox pictureBoxFont;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem скроллВверхToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem скроллВнизToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem скроллВлевоToolStripMenuItem;
@@ -1377,10 +1375,8 @@
         private System.Windows.Forms.ToolStripMenuItem вертикальноеЗеркалоToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem горизонтальноеЗеркалоToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem инструментыToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem генерироватьКодAssemblerаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem жирностьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem наклонToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
         private System.Windows.Forms.ToolStripMenuItem очиститьToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
@@ -1406,7 +1402,6 @@
         private System.Windows.Forms.ToolStripMenuItem импортToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem экспортToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вBMPизображениеToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem калькуляторPOKEToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem вTAPфайлToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изBMPToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem изTAPToolStripMenuItem;
@@ -1436,8 +1431,13 @@
         private System.Windows.Forms.ToolStripMenuItem изБинарногоФайлаToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBoxSumbol;
         private System.Windows.Forms.ToolStripMenuItem параметрыToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem шрифтToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem CodeInHex;
+        private System.Windows.Forms.ToolStripMenuItem инструментыToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem текстовыйГенераторToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem калькуляторPOKEToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem параметрыШрифтаToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem новыйЧистыйToolStripMenuItem;
     }
 }
 
