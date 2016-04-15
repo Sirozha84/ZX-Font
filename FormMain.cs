@@ -38,6 +38,7 @@ namespace ZXFont
             Width = Properties.Settings.Default.Width;
             Height = Properties.Settings.Default.Height;
             splitter1.SplitPosition = Properties.Settings.Default.Splitter;
+            CodeInHex.Checked = Properties.Settings.Default.Hex;
             menunew_Click(null, null);
         }
         //Создание нового файла
@@ -144,6 +145,7 @@ namespace ZXFont
             Properties.Settings.Default.Width = Width;
             Properties.Settings.Default.Height = Height;
             Properties.Settings.Default.Splitter = splitter1.SplitPosition;
+            Properties.Settings.Default.Hex = CodeInHex.Checked;
             Properties.Settings.Default.Save();
             HelpClose();
         }
@@ -270,11 +272,16 @@ namespace ZXFont
                 if (b == 7) Byte2 += (byte)(CurrentProject.Font[s, l, 15] * 1);
             }
             if (CurrentProject.SizeX <= 8)
-                st = Byte1.ToString();
+                st = Digits.ToString(Byte1, CodeInHex.Checked);
             else
-                st = Byte1.ToString() + ", "+ Byte2.ToString();
+            {
+                st = Digits.ToString(Byte1, CodeInHex.Checked);
+                if (!CodeInHex.Checked) st += ", ";
+                st += Digits.ToString(Byte2, CodeInHex.Checked);
+            }
             return st;
         }
+
         //Рисование имени файла и программы
         void SetFormText()
         {
@@ -981,7 +988,8 @@ namespace ZXFont
 
         private void кодыВHEXToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            кодыВHEXToolStripMenuItem.Checked ^= true;
+            CodeInHex.Checked ^= true;
+            DrawSymbol();
         }
     }
 }

@@ -82,7 +82,7 @@
             this.калькуляторPOKEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.шрифтToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.кодыВHEXToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CodeInHex = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuhelp = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -600,7 +600,7 @@
             // 
             this.параметрыToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.шрифтToolStripMenuItem1,
-            this.кодыВHEXToolStripMenuItem});
+            this.CodeInHex});
             this.параметрыToolStripMenuItem1.Name = "параметрыToolStripMenuItem1";
             this.параметрыToolStripMenuItem1.Size = new System.Drawing.Size(83, 20);
             this.параметрыToolStripMenuItem1.Text = "Параметры";
@@ -613,12 +613,12 @@
             this.шрифтToolStripMenuItem1.Text = "Шрифт";
             this.шрифтToolStripMenuItem1.Click += new System.EventHandler(this.шрифтToolStripMenuItem1_Click);
             // 
-            // кодыВHEXToolStripMenuItem
+            // CodeInHex
             // 
-            this.кодыВHEXToolStripMenuItem.Name = "кодыВHEXToolStripMenuItem";
-            this.кодыВHEXToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.кодыВHEXToolStripMenuItem.Text = "Коды в HEX";
-            this.кодыВHEXToolStripMenuItem.Click += new System.EventHandler(this.кодыВHEXToolStripMenuItem_Click);
+            this.CodeInHex.Name = "CodeInHex";
+            this.CodeInHex.Size = new System.Drawing.Size(152, 22);
+            this.CodeInHex.Text = "Коды в HEX";
+            this.CodeInHex.Click += new System.EventHandler(this.кодыВHEXToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -1437,7 +1437,7 @@
         private System.Windows.Forms.PictureBox pictureBoxSumbol;
         private System.Windows.Forms.ToolStripMenuItem параметрыToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem шрифтToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem кодыВHEXToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem CodeInHex;
     }
 }
 

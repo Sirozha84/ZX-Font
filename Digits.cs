@@ -22,9 +22,26 @@
             }
         }
 
+        /// <summary>
+        /// Перевод человеческого числа в 16-и ричное представление
+        /// </summary>
+        /// <param name="num">Код</param>
+        /// <returns></returns>
         public static string ToHex(byte num)
         {
             return HexLit(num / 16) + HexLit(num % 16);
+        }
+
+        /// <summary>
+        /// Перевод числа в строку
+        /// </summary>
+        /// <param name="num">Код</param>
+        /// <param name="inHex">В Hex?</param>
+        /// <returns></returns>
+        public static string ToString(byte num, bool inHex)
+        {
+            if (inHex) return ToHex(num);
+            return num.ToString();
         }
 
         static string HexLit(int b)
