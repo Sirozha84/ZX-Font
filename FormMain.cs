@@ -8,6 +8,7 @@ namespace ZXFont
 {
     public partial class FormMain : Form
     {
+        const int PixelSize = 32;
         static public Project CurrentProject = new Project();
         static public int ShirinaX;
         static public int ShirinaY;
@@ -26,7 +27,6 @@ namespace ZXFont
         Graphics Canvas;
         Color Ink;
         Color Paper;
-        Color AvColor;
 
         //Инициализация параметров
         public FormMain()
@@ -40,6 +40,7 @@ namespace ZXFont
             splitter1.SplitPosition = Properties.Settings.Default.Splitter;
             CodeInHex.Checked = Properties.Settings.Default.Hex;
             Grid.Checked = Properties.Settings.Default.Grid;
+            Borders.Checked = Properties.Settings.Default.Borders;
             menunew_Click(null, null);
         }
         //Создание нового файла
@@ -101,7 +102,6 @@ namespace ZXFont
             CurrentProject.Copy(History[HistoryNumber - 1]);
             InitBitmaps();
             DrawDocument();
-            //Change(false);
         }
         //Вырезать
         private void menucut_Click(object sender, EventArgs e)
@@ -150,6 +150,7 @@ namespace ZXFont
             Properties.Settings.Default.Splitter = splitter1.SplitPosition;
             Properties.Settings.Default.Hex = CodeInHex.Checked;
             Properties.Settings.Default.Grid = Grid.Checked;
+            Properties.Settings.Default.Borders = Borders.Checked;
             Properties.Settings.Default.Save();
             HelpClose();
         }
@@ -207,35 +208,53 @@ namespace ZXFont
         //Рисование символа
         void DrawSymbol()
         {
+            const int PixelSize = 32;
             Brush INK = new SolidBrush(Ink);
             Brush PAPER = new SolidBrush(Paper);
+            Color AvColor = Color.FromArgb((Program.ZXColor[Properties.Settings.Default.Ink].R +
+                                      Program.ZXColor[Properties.Settings.Default.Paper].R) / 2,
+                                     (Program.ZXColor[Properties.Settings.Default.Ink].G +
+                                      Program.ZXColor[Properties.Settings.Default.Paper].G) / 2,
+                                     (Program.ZXColor[Properties.Settings.Default.Ink].B +
+                                      Program.ZXColor[Properties.Settings.Default.Paper].B) / 2);
+            Color AvColorLow = Color.FromArgb((Program.ZXColor[Properties.Settings.Default.Ink].R +
+                                         Program.ZXColor[Properties.Settings.Default.Paper].R * 2) / 3,
+                                        (Program.ZXColor[Properties.Settings.Default.Ink].G +
+                                         Program.ZXColor[Properties.Settings.Default.Paper].G * 2) / 3,
+                                        (Program.ZXColor[Properties.Settings.Default.Ink].B +
+                                         Program.ZXColor[Properties.Settings.Default.Paper].B * 2) / 3);
+            Color AvColorLowwww = Color.FromArgb((Program.ZXColor[Properties.Settings.Default.Ink].R +
+                                         Program.ZXColor[Properties.Settings.Default.Paper].R * 3) / 4,
+                                        (Program.ZXColor[Properties.Settings.Default.Ink].G +
+                                         Program.ZXColor[Properties.Settings.Default.Paper].G * 3) / 4,
+                                        (Program.ZXColor[Properties.Settings.Default.Ink].B +
+                                         Program.ZXColor[Properties.Settings.Default.Paper].B * 3) / 4); 
+
+
             Brush AVColor = new SolidBrush(AvColor);
+            Brush AVColorL = new SolidBrush(AvColorLow);
+            Brush AVColorLL = new SolidBrush(AvColorLowwww);
             const int px = 16;
-            //Рисуем ограничивающую сетку
-            for (int i = 0; i < CurrentProject.SizeX; i++)
+            //Рисуем, если надо, поля шаблона
+            Canvas.FillRectangle(PAPER, 0, 0, CurrentProject.SizeX * 16, CurrentProject.SizeY * 16);
+            if (Borders.Checked)
             {
-                if (i < Project.XL)
-                    for (int j = 0; j < CurrentProject.SizeY; j++)
-                        Canvas.FillRectangle(AVColor, i * px, j * px, px, px);
-                if (i >= Project.XL & i < CurrentProject.SizeX - Project.XR)
-                {
-                    for (int j = 0; j < CurrentProject.SizeY; j++)
-                        Canvas.FillRectangle(PAPER, i * px, j * px, px, px);
-                    for (int j = 0; j < Project.Yt; j++)
-                        Canvas.FillRectangle(AVColor, i * px, j * px, px, px);
-                    for (int j = 0; j < Project.YT; j++)
-                        Canvas.FillRectangle(AVColor, i * px, j * px, px, px);
-                    for (int j = CurrentProject.SizeY - Project.YB; j < CurrentProject.SizeY; j++)
-                        Canvas.FillRectangle(AVColor, i * px, j * px, px, px);
-                }
-                if (i >= CurrentProject.SizeX - Project.XR)
-                    for (int j = 0; j < CurrentProject.SizeY; j++)
-                        Canvas.FillRectangle(AVColor, i * px, j * px, px, px);
+                int Width = CurrentProject.SizeX;
+                int Height = CurrentProject.SizeY;
+                Canvas.FillRectangle(AVColorLL, 0, 0, Width * 16, Properties.Settings.Default.BorderTopP * 16);
+                Canvas.FillRectangle(AVColorL, 0, 0, Width * 16, Properties.Settings.Default.BorderTop * 16);
+                Canvas.FillRectangle(AVColorL, 0, (Height - Properties.Settings.Default.BorderBottom) * 16,
+                    Width * 16, Properties.Settings.Default.BorderBottom * 16);
+                Canvas.FillRectangle(AVColorL, 0, 0, Properties.Settings.Default.BorderLeft * 16, Width * 16);
+                Canvas.FillRectangle(AVColorL, (Width - Properties.Settings.Default.BorderRight) * 16, 0,
+                    Properties.Settings.Default.BorderRight * 16, Width * 16);
             }
             //Рисуем символ
-            for (int y = 0; y < CurrentProject.SizeY; y++) for (int x = 0; x < CurrentProject.SizeX; x++)
+            for (int y = 0; y < CurrentProject.SizeY; y++)
+                for (int x = 0; x < CurrentProject.SizeX; x++)
                     if (CurrentProject.Font[CurrentSymbol, y, x] != 0)
                         Canvas.FillRectangle(INK, x * px, y * px, px, px);
+            //Сетка
             if (Grid.Checked)
             {
                 for (int i = px; i < CurrentProject.SizeX * px; i += px)
@@ -938,20 +957,19 @@ namespace ZXFont
         {
             Ink = Program.ZXColor[Properties.Settings.Default.Ink];
             Paper = Program.ZXColor[Properties.Settings.Default.Paper];
-            AvColor = Color.FromArgb((Program.ZXColor[Properties.Settings.Default.Ink].R +
-                                      Program.ZXColor[Properties.Settings.Default.Paper].R) / 2,
-                                     (Program.ZXColor[Properties.Settings.Default.Ink].G +
-                                      Program.ZXColor[Properties.Settings.Default.Paper].G) / 2,
-                                     (Program.ZXColor[Properties.Settings.Default.Ink].B +
-                                      Program.ZXColor[Properties.Settings.Default.Paper].B) / 2);
-
-        }
+       }
 
         private void тестШрифтаToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FormTest form = new FormTest();
             form.ShowDialog();
             form.Dispose();
+        }
+
+        private void ограничивающиеКонторыToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Borders.Checked ^= true;
+            DrawSymbol();
         }
     }
 }

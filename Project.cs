@@ -13,11 +13,6 @@ namespace ZXFont
         public static string FileName;
         public static string EditName;
         public static bool Changed;
-        public static byte XL;
-        public static byte XR;
-        public static byte YT;
-        public static byte Yt;
-        public static byte YB;
         //Данные проекта
         public int Symbols; //96, 224 или 256
         public byte SizeX; //4 - 16
@@ -78,11 +73,6 @@ namespace ZXFont
             SizeY = 8;
             Font = new byte[256, Maximumsize, Maximumsize];
             ADD = 32;
-            XL = 0;
-            XR = 0;
-            YT = 0;
-            Yt = 0;
-            YB = 0;
 
             //Заполнение дефолтным шрифтом
             int b = 0;
@@ -115,11 +105,11 @@ namespace ZXFont
                     file.Write((short)Symbols);
                     file.Write(SizeX);
                     file.Write(SizeY);
-                    file.Write(XL);
-                    file.Write(XR);
-                    file.Write(YT);
-                    file.Write(Yt);
-                    file.Write(YB);
+                    file.Write(Properties.Settings.Default.BorderLeft);
+                    file.Write(Properties.Settings.Default.BorderRight);
+                    file.Write(Properties.Settings.Default.BorderTop);
+                    file.Write(Properties.Settings.Default.BorderTopP);
+                    file.Write(Properties.Settings.Default.BorderBottom);
                     file.Write((byte)0); //Зарезервированное место
                     file.Write((byte)0);
                     file.Write((byte)0);
@@ -171,11 +161,6 @@ namespace ZXFont
                         for (int l = 0; l < 8; l++)
                             LoadByte(file.ReadByte(), s + ADD, l, 0);
                     open = true;
-                    XL = 0; //Эта штука будет сохраняться только в нестандартном шрифте
-                    XR = 0; //А по умолчанию они будут убраны
-                    YT = 0;
-                    Yt = 0;
-                    YB = 0;
                 }
                 //Шрифт, надо полагать, не стандартный
                 if (!open)
@@ -187,11 +172,11 @@ namespace ZXFont
                         Symbols = file.ReadInt16();
                         SizeX = file.ReadByte();
                         SizeY = file.ReadByte();
-                        XL = file.ReadByte();
-                        XR = file.ReadByte();
-                        YT = file.ReadByte();
-                        Yt = file.ReadByte();
-                        YB = file.ReadByte();
+                        Properties.Settings.Default.BorderLeft = file.ReadByte();
+                        Properties.Settings.Default.BorderRight = file.ReadByte();
+                        Properties.Settings.Default.BorderTop = file.ReadByte();
+                        Properties.Settings.Default.BorderTopP = file.ReadByte();
+                        Properties.Settings.Default.BorderBottom = file.ReadByte();
                         file.ReadBytes(4);
                         Font = new byte[256, Maximumsize, Maximumsize];
                         ADD = 32;
