@@ -90,6 +90,7 @@ namespace ZXFont
             if (HistoryNumber < 2) return;
             HistoryNumber--;
             CurrentProject.Copy(History[HistoryNumber - 1]);
+            InitBitmaps();
             DrawDocument();
         }
         //Возврат
@@ -98,6 +99,7 @@ namespace ZXFont
             if (HistoryNumber == History.Count) return;
             HistoryNumber++;
             CurrentProject.Copy(History[HistoryNumber - 1]);
+            InitBitmaps();
             DrawDocument();
             //Change(false);
         }
@@ -413,79 +415,8 @@ namespace ZXFont
             if (CurrentSymbol > CurrentProject.Symbols + CurrentProject.ADD - 1)
                 CurrentSymbol = CurrentProject.Symbols + CurrentProject.ADD - 1;
 
-            if (e.KeyCode == Keys.Space & !e.Shift) CurrentSymbol = 32;
-            if (e.KeyCode == Keys.D1 & e.Shift) CurrentSymbol = 33;
-            if (e.KeyCode == Keys.Oem7 & e.Shift) CurrentSymbol = 34;
-            if (e.KeyCode == Keys.D3 & e.Shift) CurrentSymbol = 35;
-            if (e.KeyCode == Keys.D4 & e.Shift) CurrentSymbol = 36;
-            if (e.KeyCode == Keys.D5 & e.Shift) CurrentSymbol = 37;
-            if (e.KeyCode == Keys.D7 & e.Shift) CurrentSymbol = 38;
-            if (e.KeyCode == Keys.Oemtilde & !e.Shift) CurrentSymbol = 39;
-            if (e.KeyCode == Keys.D9 & e.Shift) CurrentSymbol = 40;
-            if (e.KeyCode == Keys.D0 & e.Shift) CurrentSymbol = 41;
-            if (e.KeyCode == Keys.D8 & e.Shift) CurrentSymbol = 42;
-            if (e.KeyCode == Keys.Oemplus & e.Shift) CurrentSymbol = 43;
-            if (e.KeyCode == Keys.Oemcomma & !e.Shift) CurrentSymbol = 44;
-            if (e.KeyCode == Keys.OemMinus & !e.Shift) CurrentSymbol = 45;
-            if (e.KeyCode == Keys.OemPeriod & !e.Shift) CurrentSymbol = 46;
-            if (e.KeyCode == Keys.OemQuestion & !e.Shift) CurrentSymbol = 47;
-            if (e.KeyCode == Keys.D0 & !e.Shift) CurrentSymbol = 48;
-            if (e.KeyCode == Keys.D1 & !e.Shift) CurrentSymbol = 49;
-            if (e.KeyCode == Keys.D2 & !e.Shift) CurrentSymbol = 50;
-            if (e.KeyCode == Keys.D3 & !e.Shift) CurrentSymbol = 51;
-            if (e.KeyCode == Keys.D4 & !e.Shift) CurrentSymbol = 52;
-            if (e.KeyCode == Keys.D5 & !e.Shift) CurrentSymbol = 53;
-            if (e.KeyCode == Keys.D6 & !e.Shift) CurrentSymbol = 54;
-            if (e.KeyCode == Keys.D7 & !e.Shift) CurrentSymbol = 55;
-            if (e.KeyCode == Keys.D8 & !e.Shift) CurrentSymbol = 56;
-            if (e.KeyCode == Keys.D9 & !e.Shift) CurrentSymbol = 57;
-            if (e.KeyCode == Keys.Oem1 & e.Shift) CurrentSymbol = 58;
-            if (e.KeyCode == Keys.Oem1 & !e.Shift) CurrentSymbol = 59;
-            if (e.KeyCode == Keys.Oemcomma & e.Shift) CurrentSymbol = 60;
-            if (e.KeyCode == Keys.Oemplus & !e.Shift) CurrentSymbol = 61;
-            if (e.KeyCode == Keys.OemPeriod & e.Shift) CurrentSymbol = 62;
-            if (e.KeyCode == Keys.OemQuestion & e.Shift) CurrentSymbol = 63;
-            if (e.KeyCode == Keys.D2 & e.Shift) CurrentSymbol = 64;
-
-            bool Shift = e.Shift | Console.CapsLock;
-            if (e.Shift & Console.CapsLock) Shift = false;
-
-            if (e.KeyCode == Keys.A) CurrentSymbol = Shift ? 65 : 97;
-            if (e.KeyCode == Keys.B) CurrentSymbol = Shift ? 66 : 98;
-            if (e.KeyCode == Keys.C) CurrentSymbol = Shift ? 67 : 99;
-            if (e.KeyCode == Keys.D) CurrentSymbol = Shift ? 68 : 100;
-            if (e.KeyCode == Keys.E) CurrentSymbol = Shift ? 69 : 101;
-            if (e.KeyCode == Keys.F) CurrentSymbol = Shift ? 70 : 102;
-            if (e.KeyCode == Keys.G) CurrentSymbol = Shift ? 71 : 103;
-            if (e.KeyCode == Keys.H) CurrentSymbol = Shift ? 72 : 104;
-            if (e.KeyCode == Keys.I) CurrentSymbol = Shift ? 73 : 105;
-            if (e.KeyCode == Keys.J) CurrentSymbol = Shift ? 74 : 106;
-            if (e.KeyCode == Keys.K) CurrentSymbol = Shift ? 75 : 107;
-            if (e.KeyCode == Keys.L) CurrentSymbol = Shift ? 76 : 108;
-            if (e.KeyCode == Keys.M) CurrentSymbol = Shift ? 77 : 109;
-            if (e.KeyCode == Keys.N) CurrentSymbol = Shift ? 78 : 110;
-            if (e.KeyCode == Keys.O) CurrentSymbol = Shift ? 79 : 111;
-            if (e.KeyCode == Keys.P) CurrentSymbol = Shift ? 80 : 112;
-            if (e.KeyCode == Keys.Q) CurrentSymbol = Shift ? 81 : 113;
-            if (e.KeyCode == Keys.R) CurrentSymbol = Shift ? 82 : 114;
-            if (e.KeyCode == Keys.S) CurrentSymbol = Shift ? 83 : 115;
-            if (e.KeyCode == Keys.T) CurrentSymbol = Shift ? 84 : 116;
-            if (e.KeyCode == Keys.U) CurrentSymbol = Shift ? 85 : 117;
-            if (e.KeyCode == Keys.V) CurrentSymbol = Shift ? 86 : 118;
-            if (e.KeyCode == Keys.W) CurrentSymbol = Shift ? 87 : 119;
-            if (e.KeyCode == Keys.X) CurrentSymbol = Shift ? 88 : 120;
-            if (e.KeyCode == Keys.Y) CurrentSymbol = Shift ? 89 : 121;
-            if (e.KeyCode == Keys.Z) CurrentSymbol = Shift ? 90 : 122;
-
-            if (e.KeyCode == Keys.OemOpenBrackets & !e.Shift) CurrentSymbol = 91;
-            if (e.KeyCode == Keys.Oem5 & !e.Shift) CurrentSymbol = 92;
-            if (e.KeyCode == Keys.Oem6 & !e.Shift) CurrentSymbol = 93;
-            if (e.KeyCode == Keys.D6 & e.Shift) CurrentSymbol = 94;
-            if (e.KeyCode == Keys.OemMinus & e.Shift) CurrentSymbol = 95;
-            if (e.KeyCode == Keys.OemOpenBrackets & e.Shift) CurrentSymbol = 123;
-            if (e.KeyCode == Keys.Oem5 & e.Shift) CurrentSymbol = 124;
-            if (e.KeyCode == Keys.Oem6 & e.Shift) CurrentSymbol = 125;
-            if (e.KeyCode == Keys.Oemtilde & e.Shift) CurrentSymbol = 126;
+            int key = Letters.KeyByKeuboard(e);
+            if (key > 0) CurrentSymbol = key;
             DrawDocument();
         }
 

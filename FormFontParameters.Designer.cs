@@ -40,6 +40,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.checkBoxScale = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
@@ -160,7 +161,7 @@
             this.pictureBox1.Image = global::ZXFont.Properties.Resources.FontParams;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(394, 572);
+            this.pictureBox1.Size = new System.Drawing.Size(394, 607);
             this.pictureBox1.TabIndex = 8;
             this.pictureBox1.TabStop = false;
             // 
@@ -177,8 +178,9 @@
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(122, 523);
+            this.button1.Location = new System.Drawing.Point(124, 558);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 37);
             this.button1.TabIndex = 10;
@@ -188,9 +190,10 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button2.Location = new System.Drawing.Point(254, 523);
+            this.button2.Location = new System.Drawing.Point(256, 558);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 37);
             this.button2.TabIndex = 11;
@@ -198,13 +201,28 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // checkBoxScale
+            // 
+            this.checkBoxScale.AutoSize = true;
+            this.checkBoxScale.BackColor = System.Drawing.Color.White;
+            this.checkBoxScale.Checked = true;
+            this.checkBoxScale.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxScale.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.checkBoxScale.Location = new System.Drawing.Point(12, 508);
+            this.checkBoxScale.Name = "checkBoxScale";
+            this.checkBoxScale.Size = new System.Drawing.Size(310, 24);
+            this.checkBoxScale.TabIndex = 12;
+            this.checkBoxScale.Text = "Растягивать при изменении размера";
+            this.checkBoxScale.UseVisualStyleBackColor = false;
+            // 
             // FormFontParameters
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(394, 572);
+            this.ClientSize = new System.Drawing.Size(394, 607);
+            this.Controls.Add(this.checkBoxScale);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -251,5 +269,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.CheckBox checkBoxScale;
     }
 }
