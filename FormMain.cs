@@ -24,6 +24,9 @@ namespace ZXFont
         Bitmap BitmapFont;
         Bitmap BitmapSymbol;
         Graphics Canvas;
+        Color Ink;
+        Color Paper;
+        Color AvColor;
 
         //Инициализация параметров
         public FormMain()
@@ -36,6 +39,7 @@ namespace ZXFont
             Height = Properties.Settings.Default.Height;
             splitter1.SplitPosition = Properties.Settings.Default.Splitter;
             CodeInHex.Checked = Properties.Settings.Default.Hex;
+            Grid.Checked = Properties.Settings.Default.Grid;
             menunew_Click(null, null);
         }
         //Создание нового файла
@@ -143,6 +147,7 @@ namespace ZXFont
             Properties.Settings.Default.Height = Height;
             Properties.Settings.Default.Splitter = splitter1.SplitPosition;
             Properties.Settings.Default.Hex = CodeInHex.Checked;
+            Properties.Settings.Default.Grid = Grid.Checked;
             Properties.Settings.Default.Save();
             HelpClose();
         }
@@ -163,18 +168,26 @@ namespace ZXFont
         //Рисование шрифта
         void DrawDocument()
         {
+            Color InkB = Program.ZXColor[Properties.Settings.Default.Ink + 8];
+            Color PaperB = Program.ZXColor[Properties.Settings.Default.Paper + 8];
+
+            SetColors();
             ProgramTextChange = true;
             int mn = 1; //Множитель, удваивает размер пикселей в микрошрифтах
             if (CurrentProject.SizeX <= 8) mn = 2;
-            BitmapFont.SetPixel(0, 0, Color.Black);
+            BitmapFont.SetPixel(0, 0, Ink);
             for (int s = 0; s < CurrentProject.Symbols; s++)
                 for (int l = 0; l < CurrentProject.SizeY; l++)
                     for (int b = 0; b < CurrentProject.SizeX; b++)
                     {
-                        Color pix = Color.White;
-                        if (s + CurrentProject.ADD == CurrentSymbol) pix = Color.Yellow;
+                        Color pix = Paper;
+                        if (s + CurrentProject.ADD == CurrentSymbol) pix = PaperB;
                         if (CurrentProject.Symbols == 256) CurrentProject.ADD = 0;
-                        if (CurrentProject.Font[s + CurrentProject.ADD, l, b] == 1) pix = Color.Black;
+                        if (CurrentProject.Font[s + CurrentProject.ADD, l, b] == 1)
+                        {
+                            pix = Ink;
+                            if (s + CurrentProject.ADD == CurrentSymbol) pix = InkB;
+                        }
                         int x = (s % 32) * CurrentProject.SizeX + b;
                         int y = (s / 32) * CurrentProject.SizeY + l;
 
@@ -192,36 +205,42 @@ namespace ZXFont
         //Рисование символа
         void DrawSymbol()
         {
+            Brush INK = new SolidBrush(Ink);
+            Brush PAPER = new SolidBrush(Paper);
+            Brush AVColor = new SolidBrush(AvColor);
             const int px = 16;
             //Рисуем ограничивающую сетку
             for (int i = 0; i < CurrentProject.SizeX; i++)
             {
                 if (i < Project.XL)
                     for (int j = 0; j < CurrentProject.SizeY; j++)
-                        Canvas.FillRectangle(Brushes.Silver, i * px, j * px, px, px);
+                        Canvas.FillRectangle(AVColor, i * px, j * px, px, px);
                 if (i >= Project.XL & i < CurrentProject.SizeX - Project.XR)
                 {
                     for (int j = 0; j < CurrentProject.SizeY; j++)
-                        Canvas.FillRectangle(Brushes.White, i * px, j * px, px, px);
+                        Canvas.FillRectangle(PAPER, i * px, j * px, px, px);
                     for (int j = 0; j < Project.Yt; j++)
-                        Canvas.FillRectangle(Brushes.LightGray, i * px, j * px, px, px);
+                        Canvas.FillRectangle(AVColor, i * px, j * px, px, px);
                     for (int j = 0; j < Project.YT; j++)
-                        Canvas.FillRectangle(Brushes.Silver, i * px, j * px, px, px);
+                        Canvas.FillRectangle(AVColor, i * px, j * px, px, px);
                     for (int j = CurrentProject.SizeY - Project.YB; j < CurrentProject.SizeY; j++)
-                        Canvas.FillRectangle(Brushes.Silver, i * px, j * px, px, px);
+                        Canvas.FillRectangle(AVColor, i * px, j * px, px, px);
                 }
                 if (i >= CurrentProject.SizeX - Project.XR)
                     for (int j = 0; j < CurrentProject.SizeY; j++)
-                        Canvas.FillRectangle(Brushes.Silver, i * px, j * px, px, px);
+                        Canvas.FillRectangle(AVColor, i * px, j * px, px, px);
             }
             //Рисуем символ
             for (int y = 0; y < CurrentProject.SizeY; y++) for (int x = 0; x < CurrentProject.SizeX; x++)
                     if (CurrentProject.Font[CurrentSymbol, y, x] != 0)
-                        Canvas.FillRectangle(Brushes.Black, x * px, y * px, px, px);
-            for (int i = px; i < CurrentProject.SizeX * px; i += px)
-                Canvas.DrawLine(Pens.Gray, i, 0, i, CurrentProject.SizeY * px);
-            for (int i = px; i < CurrentProject.SizeY * px; i += px)
-                Canvas.DrawLine(Pens.Gray, 0, i, CurrentProject.SizeX * px + 0, i);
+                        Canvas.FillRectangle(INK, x * px, y * px, px, px);
+            if (Grid.Checked)
+            {
+                for (int i = px; i < CurrentProject.SizeX * px; i += px)
+                    Canvas.DrawLine(new Pen(AvColor), i, 0, i, CurrentProject.SizeY * px);
+                for (int i = px; i < CurrentProject.SizeY * px; i += px)
+                    Canvas.DrawLine(new Pen(AvColor), 0, i, CurrentProject.SizeX * px + 0, i);
+            }
             pictureBoxSumbol.Image = BitmapSymbol;
             label2.Text = CurrentSymbol.ToString();
             label3.Text = "" + (char)CurrentSymbol;
@@ -830,7 +849,6 @@ namespace ZXFont
         //Открытие файла, указанного в аргументах
         private void FormMain_Load(object sender, EventArgs e)
         {
-
             string[] args = Environment.GetCommandLineArgs();
             if (args.Count() == 1) return;
             string file = args[1];
@@ -970,6 +988,39 @@ namespace ZXFont
             DrawDocument();
             ResetHistory();
             Change(true);
+        }
+
+        private void сеткаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Grid.Checked ^= true;
+            DrawSymbol();
+        }
+
+        private void цветаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormColors form = new FormColors();
+            form.ShowDialog();
+            DrawDocument();
+        }
+
+        void SetColors()
+        {
+            Ink = Program.ZXColor[Properties.Settings.Default.Ink];
+            Paper = Program.ZXColor[Properties.Settings.Default.Paper];
+            AvColor = Color.FromArgb((Program.ZXColor[Properties.Settings.Default.Ink].R +
+                                      Program.ZXColor[Properties.Settings.Default.Paper].R) / 2,
+                                     (Program.ZXColor[Properties.Settings.Default.Ink].G +
+                                      Program.ZXColor[Properties.Settings.Default.Paper].G) / 2,
+                                     (Program.ZXColor[Properties.Settings.Default.Ink].B +
+                                      Program.ZXColor[Properties.Settings.Default.Paper].B) / 2);
+
+        }
+
+        private void тестШрифтаToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormTest form = new FormTest();
+            form.ShowDialog();
+            form.Dispose();
         }
     }
 }

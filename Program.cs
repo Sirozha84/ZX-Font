@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace ZXFont
 {
@@ -11,7 +12,22 @@ namespace ZXFont
         public const string Autor = "Сергей Гордеев";
         public const string FileUnnamed = "Безымянный";
         public const string FileType = "Шрифт ZX Spectrum|*.SpecCHR|Все файлы|*.*";
-
+        public static Color[] ZXColor = { Color.FromArgb(0, 0, 0),
+                                          Color.FromArgb(0, 0, 192),
+                                          Color.FromArgb(192, 0, 0),
+                                          Color.FromArgb(192, 0, 192),
+                                          Color.FromArgb(0, 180, 0),
+                                          Color.FromArgb(0, 192, 192),
+                                          Color.FromArgb(192, 192, 0),
+                                          Color.FromArgb(192, 192, 192),
+                                          Color.FromArgb(64, 64, 64),
+                                          Color.FromArgb(64, 64, 255),
+                                          Color.FromArgb(255, 64, 64),
+                                          Color.FromArgb(255, 64, 255),
+                                          Color.FromArgb(64, 255, 64),
+                                          Color.FromArgb(64, 255, 255),
+                                          Color.FromArgb(255, 255, 0),
+                                          Color.FromArgb(255, 255, 255)};
         /// <summary>
         /// Злобное сообщение об ошибке
         /// </summary>
