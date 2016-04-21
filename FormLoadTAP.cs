@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using System.IO;
 
@@ -48,8 +45,8 @@ namespace ZXFont
         private void buttonOK_Click(object sender, EventArgs e)
         {
             //Перекачка найденного в проект
-            FormMain.CurrentProject.SizeX = (byte)numericUpDown1.Value;
-            FormMain.CurrentProject.SizeY = (byte)numericUpDown2.Value;
+            FormMain.CurrentProject.SizeX = (byte)numericUpDownWidth.Value;
+            FormMain.CurrentProject.SizeY = (byte)numericUpDownHeight.Value;
             FormMain.CurrentProject.Symbols = 96;
             FormMain.CurrentProject.ADD = 32;
             if (comboBoxSymCounts.SelectedIndex == 1) FormMain.CurrentProject.Symbols = 224;
@@ -96,17 +93,17 @@ namespace ZXFont
                                 if (FB > 0)
                                 {
                                     Blocks.Add(Bytes);
-                                    listBox1.Items.Add("Блок " + Digits.Numeration(Bytes.Length));
+                                    listBoxBlocks.Items.Add("Блок " + Digits.Numeration(Bytes.Length));
                                 }
                             }
                         else
                         //Загрузка бинарного файла
                         {
                             Blocks.Add(file.ReadBytes((int)file.BaseStream.Length));
-                            listBox1.Items.Add("Файл " + Digits.Numeration((int)file.BaseStream.Length));
+                            listBoxBlocks.Items.Add("Файл " + Digits.Numeration((int)file.BaseStream.Length));
                         }
                     }
-                    listBox1.SelectedIndex = 0;
+                    listBoxBlocks.SelectedIndex = 0;
                 }
                 catch
                 {
@@ -120,30 +117,35 @@ namespace ZXFont
         //Автоматический поиск шрифта в блоке...
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Blocks[listBox1.SelectedIndex].Count() < 400) return;
+            int Size = Blocks[listBoxBlocks.SelectedIndex].Count();
+            if (Blocks[listBoxBlocks.SelectedIndex].Count() < 400) return;
             Adr.Clear();
-            listBox2.Items.Clear();
-            for (int i = 0; i < Blocks[listBox1.SelectedIndex].Count() - 300; i++)
+            listBoxSearch.Items.Clear();
+            for (int i = 0; i < Size - 300; i++)
             {
                 bool nul = true;
-                for (int j = 0; j < 8; j++) if (Blocks[listBox1.SelectedIndex][i + j] > 0) nul = false;
-                if (nul & Blocks[listBox1.SelectedIndex][i + 8] > 0)
+                for (int j = 0; j < 8; j++) if (Blocks[listBoxBlocks.SelectedIndex][i + j] > 0) nul = false;
+                if (nul & Blocks[listBoxBlocks.SelectedIndex][i + 8] > 0)
                 {
                     Adr.Add(i);
-                    listBox2.Items.Add("Байт " + i.ToString());
+                    listBoxSearch.Items.Add("Байт " + i.ToString());
                 }
             }
-            numericUpDown3.Value = 0;
+            numericUpDownSearch.Maximum = Size;
+            numericUpDownSearch.Value = 0;
+            hScrollBar.Maximum = Size;
+            hScrollBar.Value = 0;
             Drawfont();
         }
 
         private void listBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            numericUpDown3.Value = Adr[listBox2.SelectedIndex];
+            numericUpDownSearch.Value = Adr[listBoxSearch.SelectedIndex];
         }
 
         private void numericUpDown3_ValueChanged(object sender, EventArgs e)
         {
+            hScrollBar.Value = (int)numericUpDownSearch.Value;
             Drawfont();
         }
         //Загрузка и рисование шрифта
@@ -151,15 +153,15 @@ namespace ZXFont
         {
             int SM = 96;
             int ADD = 32;
-            int SX = (int)numericUpDown1.Value;
-            int SY = (int)numericUpDown2.Value;
-            int CB = listBox1.SelectedIndex;
+            int SX = (int)numericUpDownWidth.Value;
+            int SY = (int)numericUpDownHeight.Value;
+            int CB = listBoxBlocks.SelectedIndex;
             if (CB < 0) return;
             FONT = new byte[256, 16, 16];
             if (comboBoxSymCounts.SelectedIndex == 1) SM = 224;
             if (comboBoxSymCounts.SelectedIndex == 2) { SM = 256; ADD = 0; }
             //Чтение шрифта из блока
-            int B = (int)numericUpDown3.Value;
+            int B = (int)numericUpDownSearch.Value;
             if (!checkBox1.Checked)
             {
                 for (int s = 0; s < SM; s++)
@@ -256,6 +258,12 @@ namespace ZXFont
         private void numericUpDown3_KeyDown(object sender, KeyEventArgs e)
         {
             numericUpDown3_ValueChanged(null, null);
+        }
+
+        private void hScrollBar_Scroll(object sender, ScrollEventArgs e)
+        {
+            numericUpDownSearch.Value = hScrollBar.Value;
+            Drawfont();
         }
     }
 }

@@ -8,7 +8,7 @@ namespace ZXFont
     {
         //Константы программы
         public const string Name = "ZX Font";
-        public const string Version = "3.2 Beta 2 - 20 апреля 2016 года";
+        public const string Version = "3.2 Beta 3 - 21 апреля 2016 года";
         public const string Autor = "Сергей Гордеев";
         public const string FileUnnamed = "Безымянный";
         public const string FileType = "Шрифт ZX Spectrum|*.SpecCHR|Все файлы|*.*";

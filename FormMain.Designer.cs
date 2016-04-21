@@ -84,6 +84,8 @@
             this.параметрыToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.CodeInHex = new System.Windows.Forms.ToolStripMenuItem();
             this.Grid = new System.Windows.Forms.ToolStripMenuItem();
+            this.Borders = new System.Windows.Forms.ToolStripMenuItem();
+            this.параметрыОграничивающихКонтуровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.цветаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuhelp = new System.Windows.Forms.ToolStripMenuItem();
@@ -148,7 +150,7 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelFont = new System.Windows.Forms.Panel();
             this.pictureBoxFont = new System.Windows.Forms.PictureBox();
-            this.Borders = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -626,6 +628,8 @@
             this.CodeInHex,
             this.Grid,
             this.Borders,
+            this.toolStripMenuItem2,
+            this.параметрыОграничивающихКонтуровToolStripMenuItem,
             this.цветаToolStripMenuItem});
             this.параметрыToolStripMenuItem1.Name = "параметрыToolStripMenuItem1";
             this.параметрыToolStripMenuItem1.Size = new System.Drawing.Size(83, 20);
@@ -634,21 +638,35 @@
             // CodeInHex
             // 
             this.CodeInHex.Name = "CodeInHex";
-            this.CodeInHex.Size = new System.Drawing.Size(225, 22);
-            this.CodeInHex.Text = "Коды в HEX";
+            this.CodeInHex.Size = new System.Drawing.Size(293, 22);
+            this.CodeInHex.Text = "Отображать коды в HEX";
             this.CodeInHex.Click += new System.EventHandler(this.кодыВHEXToolStripMenuItem_Click);
             // 
             // Grid
             // 
             this.Grid.Name = "Grid";
-            this.Grid.Size = new System.Drawing.Size(225, 22);
-            this.Grid.Text = "Сетка";
+            this.Grid.Size = new System.Drawing.Size(293, 22);
+            this.Grid.Text = "Отображать сетку";
             this.Grid.Click += new System.EventHandler(this.сеткаToolStripMenuItem_Click);
+            // 
+            // Borders
+            // 
+            this.Borders.Name = "Borders";
+            this.Borders.Size = new System.Drawing.Size(293, 22);
+            this.Borders.Text = "Отображать ограничивающие контуры";
+            this.Borders.Click += new System.EventHandler(this.ограничивающиеКонторыToolStripMenuItem_Click);
+            // 
+            // параметрыОграничивающихКонтуровToolStripMenuItem
+            // 
+            this.параметрыОграничивающихКонтуровToolStripMenuItem.Name = "параметрыОграничивающихКонтуровToolStripMenuItem";
+            this.параметрыОграничивающихКонтуровToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.параметрыОграничивающихКонтуровToolStripMenuItem.Text = "Параметры ограничивающих контуров";
+            this.параметрыОграничивающихКонтуровToolStripMenuItem.Click += new System.EventHandler(this.параметрыОграничивающихКонтуровToolStripMenuItem_Click);
             // 
             // цветаToolStripMenuItem
             // 
             this.цветаToolStripMenuItem.Name = "цветаToolStripMenuItem";
-            this.цветаToolStripMenuItem.Size = new System.Drawing.Size(225, 22);
+            this.цветаToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
             this.цветаToolStripMenuItem.Text = "Цвета";
             this.цветаToolStripMenuItem.Click += new System.EventHandler(this.цветаToolStripMenuItem_Click);
             // 
@@ -1312,12 +1330,10 @@
             this.pictureBoxFont.TabStop = false;
             this.pictureBoxFont.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             // 
-            // Borders
+            // toolStripMenuItem2
             // 
-            this.Borders.Name = "Borders";
-            this.Borders.Size = new System.Drawing.Size(225, 22);
-            this.Borders.Text = "Ограничивающие контуры";
-            this.Borders.Click += new System.EventHandler(this.ограничивающиеКонторыToolStripMenuItem_Click);
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(290, 6);
             // 
             // FormMain
             // 
@@ -1479,6 +1495,8 @@
         private System.Windows.Forms.ToolStripMenuItem цветаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem тестШрифтаToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem Borders;
+        private System.Windows.Forms.ToolStripMenuItem параметрыОграничивающихКонтуровToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
     }
 }
 

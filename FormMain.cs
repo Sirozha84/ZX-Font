@@ -47,7 +47,7 @@ namespace ZXFont
         private void menunew_Click(object sender, EventArgs e)
         {
             if (!SaveQuestion()) return;
-            CurrentProject.NewProject();
+            CurrentProject.NewProject(false);
             CurrentSymbol = CurrentProject.ADD;
             InitBitmaps();
             DrawDocument();
@@ -872,7 +872,6 @@ namespace ZXFont
                     DrawDocument();
                     Change(true);
                 }
-            //MessageBox.Show("Файл не поддерживается", Editor.ProgramName);
         }
 
         private void pictureBoxSumbol_MouseDown(object sender, MouseEventArgs e)
@@ -932,7 +931,7 @@ namespace ZXFont
         private void новыйЧистыйToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (!SaveQuestion()) return;
-            CurrentProject.NewProject();
+            CurrentProject.NewProject(true);
             CurrentSymbol = CurrentProject.ADD;
             InitBitmaps();
             DrawDocument();
@@ -969,6 +968,13 @@ namespace ZXFont
         private void ограничивающиеКонторыToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Borders.Checked ^= true;
+            DrawSymbol();
+        }
+
+        private void параметрыОграничивающихКонтуровToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FormBorders form = new FormBorders();
+            form.ShowDialog();
             DrawSymbol();
         }
     }

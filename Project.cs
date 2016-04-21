@@ -61,8 +61,12 @@ namespace ZXFont
                         Font[i, j, k] = Copy.Font[i, j, k];
             ADD = Copy.ADD;
         }
-        //Новый проект
-        public void NewProject()
+        
+        /// <summary>
+        /// Новый проект
+        /// </summary>
+        /// <param name="Blank">True - Чистый, False - Шаблон</param>
+        public void NewProject(bool Blank)
         {
             FileName = "";
             EditName = Program.FileUnnamed;
@@ -75,21 +79,23 @@ namespace ZXFont
             ADD = 32;
 
             //Заполнение дефолтным шрифтом
-            int b = 0;
-            for (int c = 32; c < 128; c++)
-                for (int s = 0; s < 8; s++)
-                {
-                    if ((Default[b] & 128) == 128) Font[c, s, 0] = 1;
-                    if ((Default[b] & 64) == 64) Font[c, s, 1] = 1;
-                    if ((Default[b] & 32) == 32) Font[c, s, 2] = 1;
-                    if ((Default[b] & 16) == 16) Font[c, s, 3] = 1;
-                    if ((Default[b] & 8) == 8) Font[c, s, 4] = 1;
-                    if ((Default[b] & 4) == 4) Font[c, s, 5] = 1;
-                    if ((Default[b] & 2) == 2) Font[c, s, 6] = 1;
-                    if ((Default[b] & 1) == 1) Font[c, s, 7] = 1;
-                    b++;
-                }
-
+            if (!Blank)
+            {
+                int b = 0;
+                for (int c = 32; c < 128; c++)
+                    for (int s = 0; s < 8; s++)
+                    {
+                        if ((Default[b] & 128) == 128) Font[c, s, 0] = 1;
+                        if ((Default[b] & 64) == 64) Font[c, s, 1] = 1;
+                        if ((Default[b] & 32) == 32) Font[c, s, 2] = 1;
+                        if ((Default[b] & 16) == 16) Font[c, s, 3] = 1;
+                        if ((Default[b] & 8) == 8) Font[c, s, 4] = 1;
+                        if ((Default[b] & 4) == 4) Font[c, s, 5] = 1;
+                        if ((Default[b] & 2) == 2) Font[c, s, 6] = 1;
+                        if ((Default[b] & 1) == 1) Font[c, s, 7] = 1;
+                        b++;
+                    }
+            }
         }
         //Сохранение проекта
         public bool Save()

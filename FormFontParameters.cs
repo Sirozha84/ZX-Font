@@ -11,30 +11,25 @@ namespace ZXFont
         public FormFontParameters()
         {
             InitializeComponent();
-            if (FormMain.CurrentProject.Symbols == 96) comboBox1.SelectedIndex = 0;
-            if (FormMain.CurrentProject.Symbols == 224) comboBox1.SelectedIndex = 1;
-            if (FormMain.CurrentProject.Symbols == 256) comboBox1.SelectedIndex = 2;
-            numericUpDown1.Value = FormMain.CurrentProject.SizeX;
-            numericUpDown2.Value = FormMain.CurrentProject.SizeY;
-            numericUpDown3.Value = Properties.Settings.Default.BorderTop;
-            numericUpDown4.Value = Properties.Settings.Default.BorderTopP;
-            numericUpDown5.Value = Properties.Settings.Default.BorderLeft;
-            numericUpDown6.Value = Properties.Settings.Default.BorderRight;
-            numericUpDown7.Value = Properties.Settings.Default.BorderBottom;
+            if (FormMain.CurrentProject.Symbols == 96) comboBoxCount.SelectedIndex = 0;
+            if (FormMain.CurrentProject.Symbols == 224) comboBoxCount.SelectedIndex = 1;
+            if (FormMain.CurrentProject.Symbols == 256) comboBoxCount.SelectedIndex = 2;
+            numericUpDownWidth.Value = FormMain.CurrentProject.SizeX;
+            numericUpDownHeight.Value = FormMain.CurrentProject.SizeY;
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonCancel_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonOK_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == 0) { FormMain.CurrentProject.Symbols = 96; FormMain.CurrentProject.ADD = 32; }
-            if (comboBox1.SelectedIndex == 1) { FormMain.CurrentProject.Symbols = 224; FormMain.CurrentProject.ADD = 32; }
-            if (comboBox1.SelectedIndex == 2) { FormMain.CurrentProject.Symbols = 256; FormMain.CurrentProject.ADD = 0; }
-            FormMain.CurrentProject.SizeX = (byte)numericUpDown1.Value;
-            FormMain.CurrentProject.SizeY = (byte)numericUpDown2.Value;
+            if (comboBoxCount.SelectedIndex == 0) { FormMain.CurrentProject.Symbols = 96; FormMain.CurrentProject.ADD = 32; }
+            if (comboBoxCount.SelectedIndex == 1) { FormMain.CurrentProject.Symbols = 224; FormMain.CurrentProject.ADD = 32; }
+            if (comboBoxCount.SelectedIndex == 2) { FormMain.CurrentProject.Symbols = 256; FormMain.CurrentProject.ADD = 0; }
+            FormMain.CurrentProject.SizeX = (byte)numericUpDownWidth.Value;
+            FormMain.CurrentProject.SizeY = (byte)numericUpDownHeight.Value;
             //Если надо растянуть
             if (checkBoxScale.Checked)
             {
@@ -58,11 +53,6 @@ namespace ZXFont
                         }
                 }
             }
-            Properties.Settings.Default.BorderTop = (byte)numericUpDown3.Value;
-            Properties.Settings.Default.BorderTopP = (byte)numericUpDown4.Value;
-            Properties.Settings.Default.BorderLeft = (byte)numericUpDown5.Value;
-            Properties.Settings.Default.BorderRight = (byte)numericUpDown6.Value;
-            Properties.Settings.Default.BorderBottom = (byte)numericUpDown7.Value;
             DialogResult = DialogResult.OK;
             Close();
         }
