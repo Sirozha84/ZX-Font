@@ -311,10 +311,10 @@
             this.Controls.Add(this.comboBoxSymCounts);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.buttonClose);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(671, 464);
             this.Name = "FormLoadTAP";
+            this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.FormLoadTAP_Load);

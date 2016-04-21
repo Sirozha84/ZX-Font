@@ -27,6 +27,7 @@ namespace ZXFont
         Graphics Canvas;
         Color Ink;
         Color Paper;
+        string ImportFile;
 
         //Инициализация параметров
         public FormMain()
@@ -829,12 +830,18 @@ namespace ZXFont
         private void FormMain_DragDrop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
-            string file = files[0];
-            string ext = System.IO.Path.GetExtension(file).ToLower();
+            ImportFile = files[0];
+            timerForImport.Enabled = true;
+        }
+
+        private void timerForImport_Tick(object sender, EventArgs e)
+        {
+            timerForImport.Enabled = false;
+            string ext = System.IO.Path.GetExtension(ImportFile).ToLower();
             if (ext == ".specchr" && SaveQuestion())
             {
-                if (!CurrentProject.Open(file)) return;
-                Project.EditName = file;
+                if (!CurrentProject.Open(ImportFile)) return;
+                Project.EditName = ImportFile;
                 CurrentSymbol = CurrentProject.ADD;
                 InitBitmaps();
                 DrawDocument();
@@ -844,18 +851,18 @@ namespace ZXFont
             }
             if (ext == ".tap")
             {
-                FormLoadTAP form = new FormLoadTAP(FormLoadTAP.ImportTypes.Tap, file);
+                FormLoadTAP form = new FormLoadTAP(FormLoadTAP.ImportTypes.Tap, ImportFile);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     InitBitmaps();
                     DrawDocument();
-                    Change(true);
+                    Change(false);
                 }
                 return;
             }
             if (ext == ".bmp" | ext == ".png" | ext == ".jpg" | ext == ".jpeg" | ext == ".gif")
             {
-                FormLoadBMP form = new FormLoadBMP(file);
+                FormLoadBMP form = new FormLoadBMP(ImportFile);
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     Change(false);
@@ -865,12 +872,12 @@ namespace ZXFont
                 return;
             }
             //Если ничего не подошло, импортируем как бинарник
-            using (FormLoadTAP form = new FormLoadTAP(FormLoadTAP.ImportTypes.Bin, file))
+            using (FormLoadTAP form = new FormLoadTAP(FormLoadTAP.ImportTypes.Bin, ImportFile))
                 if (form.ShowDialog() == DialogResult.OK)
                 {
                     InitBitmaps();
                     DrawDocument();
-                    Change(true);
+                    Change(false);
                 }
         }
 
@@ -977,5 +984,6 @@ namespace ZXFont
             form.ShowDialog();
             DrawSymbol();
         }
+
     }
 }
