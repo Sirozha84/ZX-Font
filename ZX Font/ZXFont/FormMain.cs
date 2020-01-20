@@ -264,7 +264,7 @@ namespace ZXFont
                     Canvas.DrawLine(new Pen(AvColor), 0, i, CurrentProject.SizeX * px + 0, i);
             }
             pictureBoxSumbol.Image = BitmapSymbol;
-            label2.Text = CurrentSymbol.ToString();
+            labelCode.Text =  Digits.ToString((byte)CurrentSymbol, CodeInHex.Checked);
             label3.Text = "" + (char)CurrentSymbol;
             //Рисование кодов
             if (CurrentProject.SizeY > 0) label6.Text = Codes(CurrentSymbol, 0); else label6.Text = "";

@@ -147,7 +147,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.labelCode = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.panelFont = new System.Windows.Forms.Panel();
@@ -1035,7 +1035,7 @@
             this.panelEditor.Controls.Add(this.label5);
             this.panelEditor.Controls.Add(this.label3);
             this.panelEditor.Controls.Add(this.label4);
-            this.panelEditor.Controls.Add(this.label2);
+            this.panelEditor.Controls.Add(this.labelCode);
             this.panelEditor.Controls.Add(this.label1);
             this.panelEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelEditor.Location = new System.Drawing.Point(0, 102);
@@ -1284,16 +1284,16 @@
             this.label4.TabIndex = 7;
             this.label4.Text = "Символ";
             // 
-            // label2
+            // labelCode
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.DarkGray;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
-            this.label2.Location = new System.Drawing.Point(7, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 38);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "$";
+            this.labelCode.AutoSize = true;
+            this.labelCode.BackColor = System.Drawing.Color.DarkGray;
+            this.labelCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.labelCode.Location = new System.Drawing.Point(7, 43);
+            this.labelCode.Name = "labelCode";
+            this.labelCode.Size = new System.Drawing.Size(35, 38);
+            this.labelCode.TabIndex = 6;
+            this.labelCode.Text = "$";
             // 
             // label1
             // 
@@ -1440,7 +1440,7 @@
         private System.Windows.Forms.ToolStripMenuItem очиститьToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label labelCode;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
