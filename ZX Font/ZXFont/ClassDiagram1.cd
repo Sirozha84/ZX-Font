@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ZXFont.Digits" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAIBAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Digits.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.Editor" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Editor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.FormAbout">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAABAAAASAAAACAAAgEAAAAAAAAABAACA=</HashCode>
+      <FileName>FormAbout.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.FormFontParameters" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAACAAABAQAACAAAgCAAAYAAwCAGAAAARAAAA=</HashCode>
+      <FileName>FormFontParameters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.FormLoadBMP" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACkAABAQAICAAAACAAAYAAACAEAAAAhAAgA=</HashCode>
+      <FileName>FormLoadBMP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.FormLoadTAP" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIEAAEAgCEgABEAABKAAAACAAAIgCIKAAACgA1DAEA=</HashCode>
+      <FileName>FormLoadTAP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.FormMain" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>/19Ub/+U9SrN0hcKqP+DxP/zM0DFFNjiLJcPAwnrYv8=</HashCode>
+      <FileName>FormMain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.FormNaklon" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAACAAABAAAASAAAACAAAYAAAAAGAAAAAAAAA=</HashCode>
+      <FileName>FormNaklon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.FormPoke" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACEAABAAAACAAAACACAQAAAAACAAAAAAAAA=</HashCode>
+      <FileName>FormPoke.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.FormSaveTAP" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BQAAAAAAACAAABAAAACAAAACAEAwAAAAEDAIAAECAAA=</HashCode>
+      <FileName>FormSaveTAP.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.FormShirina" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAACAgABQAAASAAAACAAAYAAAAAGAAAAAAAAA=</HashCode>
+      <FileName>FormShirina.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.FormTextGenerator" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AKgAAAAAACAAAJkAAACgBCACIAAAACAApGBAAAGAAAI=</HashCode>
+      <FileName>FormTextGenerator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.Program" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgAAgAAAAAAIQAAAAAAAAQAAAIAAAAAAAAAJAAEAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.Project" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAIABAABAIIAABAACIACAAwAAAIAAQAgAABLCAAA=</HashCode>
+      <FileName>Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.Properties.Resources" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAIACCAgQAAAAlOQgAgQAMAAAAQCQAAikAgYA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.Properties.Settings" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ZXFont.Propertiess" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAhAAAAAAgAAAAEAAAAAAAAIAAAAAAAAAYIA=</HashCode>
+      <FileName>Properties.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

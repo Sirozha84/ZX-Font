@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A5D5E38B-4752-4532-A771-5FD265F254AC}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZXFont</RootNamespace>
+    <AssemblyName>ZX Font</AssemblyName>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>3.2.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>ZXFont.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ZX Font.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>SG Software.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Digits.cs" />
+    <Compile Include="Editor.cs" />
+    <Compile Include="FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAbout.designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormColors.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormColors.Designer.cs">
+      <DependentUpon>FormColors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormBorders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormBorders.Designer.cs">
+      <DependentUpon>FormBorders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTest.Designer.cs">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormTextGenerator.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormTextGenerator.Designer.cs">
+      <DependentUpon>FormTextGenerator.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormFontParameters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormFontParameters.Designer.cs">
+      <DependentUpon>FormFontParameters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoadBMP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoadBMP.Designer.cs">
+      <DependentUpon>FormLoadBMP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLoadTAP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLoadTAP.Designer.cs">
+      <DependentUpon>FormLoadTAP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormNaklon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormNaklon.Designer.cs">
+      <DependentUpon>FormNaklon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPoke.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPoke.Designer.cs">
+      <DependentUpon>FormPoke.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSaveTAP.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSaveTAP.Designer.cs">
+      <DependentUpon>FormSaveTAP.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormShirina.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormShirina.Designer.cs">
+      <DependentUpon>FormShirina.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Letters.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Project.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormColors.resx">
+      <DependentUpon>FormColors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormBorders.resx">
+      <DependentUpon>FormBorders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTest.resx">
+      <DependentUpon>FormTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTextGenerator.resx">
+      <DependentUpon>FormTextGenerator.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormFontParameters.resx">
+      <DependentUpon>FormFontParameters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoadBMP.resx">
+      <DependentUpon>FormLoadBMP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormLoadTAP.resx">
+      <DependentUpon>FormLoadTAP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNaklon.resx">
+      <DependentUpon>FormNaklon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPoke.resx">
+      <DependentUpon>FormPoke.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSaveTAP.resx">
+      <DependentUpon>FormSaveTAP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormShirina.resx">
+      <DependentUpon>FormShirina.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SG Software.snk" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль Microsoft .NET Framework 4 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>Клиентский профиль .NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Установщик Windows 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Вставить.png" />
+    <None Include="Resources\Копировать.png" />
+    <None Include="Resources\Вырезать.png" />
+    <None Include="Resources\Сохранить.png" />
+    <None Include="Resources\Открыть.png" />
+    <None Include="Resources\Новый.png" />
+    <None Include="Resources\Справка.png" />
+    <None Include="Resources\Отменить.png" />
+    <None Include="Resources\Повторить.png" />
+    <None Include="Resources\Параметры шрифта.png" />
+    <None Include="Resources\up.ico" />
+    <None Include="Resources\down.ico" />
+    <None Include="Resources\left.ico" />
+    <None Include="Resources\right.ico" />
+    <None Include="Resources\rotatrright.ico" />
+    <None Include="Resources\rotateleft.ico" />
+    <None Include="Resources\mirrowvert.ico" />
+    <None Include="Resources\mirrowhor.ico" />
+    <None Include="Resources\inverse.ico" />
+    <None Include="Resources\delete.ico" />
+    <None Include="Resources\Poke.ico" />
+    <None Include="Resources\Code.ico" />
+    <None Include="Resources\B.png" />
+    <None Include="Resources\I.png" />
+    <None Include="Resources\Настройки.ico" />
+    <Content Include="ZX Font.ico" />
+    <Content Include="История.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
