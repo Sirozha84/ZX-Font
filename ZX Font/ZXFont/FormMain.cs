@@ -107,12 +107,14 @@ namespace ZXFont
         //Вырезать
         private void menucut_Click(object sender, EventArgs e)
         {
+            Bitmap buf = new Bitmap(CurrentProject.SizeX, CurrentProject.SizeY);
             for (int i = 0; i < CurrentProject.SizeX; i++)
                 for (int j = 0; j < CurrentProject.SizeY; j++)
                 {
-                    Buffer[i, j] = CurrentProject.Font[CurrentSymbol, i, j];
-                    CurrentProject.Font[CurrentSymbol, i, j] = 0;
+                    buf.SetPixel(i, j, CurrentProject.Font[CurrentSymbol, j, i] == 0 ? Color.White : Color.Black);
+                    CurrentProject.Font[CurrentSymbol, j, i] = 0;
                 }
+            Clipboard.SetImage(buf);
             DrawSymbol();
             DrawDocument();
             Change(false);
@@ -123,18 +125,24 @@ namespace ZXFont
             Bitmap buf = new Bitmap(CurrentProject.SizeX, CurrentProject.SizeY);
             for (int i = 0; i < CurrentProject.SizeX; i++)
                 for (int j = 0; j < CurrentProject.SizeY; j++)
-                {
-                    Buffer[i, j] = CurrentProject.Font[CurrentSymbol, i, j];
                     buf.SetPixel(i, j, CurrentProject.Font[CurrentSymbol, j, i] == 0 ? Color.White : Color.Black);
-                }
             Clipboard.SetImage(buf);
         }
         //Вставить
         private void menupaste_Click(object sender, EventArgs e)
         {
+            Image im = Clipboard.GetImage();
+            if (im == null) return;
+            Bitmap buf = new Bitmap(Clipboard.GetImage());
             for (int i = 0; i < CurrentProject.SizeX; i++)
                 for (int j = 0; j < CurrentProject.SizeY; j++)
-                    CurrentProject.Font[CurrentSymbol, i, j] = Buffer[i, j];
+                {
+                    if (i < buf.Width & j < buf.Height)
+                    {
+                        Color p = buf.GetPixel(i, j);
+                        CurrentProject.Font[CurrentSymbol, j, i] = (byte)((p.R + p.G + p.B < 384) ? 1 : 0);
+                    }
+                }
             DrawSymbol();
             DrawDocument();
         }
