@@ -120,9 +120,14 @@ namespace ZXFont
         //Копировать
         private void menucopy_Click(object sender, EventArgs e)
         {
+            Bitmap buf = new Bitmap(CurrentProject.SizeX, CurrentProject.SizeY);
             for (int i = 0; i < CurrentProject.SizeX; i++)
                 for (int j = 0; j < CurrentProject.SizeY; j++)
+                {
                     Buffer[i, j] = CurrentProject.Font[CurrentSymbol, i, j];
+                    buf.SetPixel(i, j, CurrentProject.Font[CurrentSymbol, j, i] == 0 ? Color.White : Color.Black);
+                }
+            Clipboard.SetImage(buf);
         }
         //Вставить
         private void menupaste_Click(object sender, EventArgs e)
