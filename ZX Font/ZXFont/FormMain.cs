@@ -338,7 +338,7 @@ namespace ZXFont
         {
             string star = ""; 
             if (Project.Changed) star = "*";
-            Text = System.IO.Path.GetFileNameWithoutExtension(Project.EditName) + star + " - " + Program.Name; 
+            Text = System.IO.Path.GetFileNameWithoutExtension(Project.EditName) + star + " - " + Application.ProductName;
         }
         //Регистрация изменений
         void Change(bool Reset) 
@@ -828,7 +828,7 @@ namespace ZXFont
                 Change(true);
                 return;
             }
-            MessageBox.Show("Файл не поддерживается", Program.Name);
+            Program.Message("Файл не поддерживается");
         }
 
         //Drag-n-Drop

@@ -203,6 +203,16 @@ namespace ZXFont.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ZX_Font {
+            get {
+                object obj = ResourceManager.GetObject("ZX Font", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Вставить {
             get {
                 object obj = ResourceManager.GetObject("Вставить", resourceCulture);

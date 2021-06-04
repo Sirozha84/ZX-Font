@@ -273,6 +273,7 @@
     <None Include="Resources\B.png" />
     <None Include="Resources\I.png" />
     <None Include="Resources\Настройки.ico" />
+    <None Include="Resources\ZX Font.png" />
     <Content Include="ZX Font.ico" />
     <Content Include="История.txt" />
   </ItemGroup>
