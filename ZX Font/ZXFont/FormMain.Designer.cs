@@ -90,8 +90,6 @@
             this.параметрыОграничивающихКонтуровToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.цветаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuhelp = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.menuabout = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolnew = new System.Windows.Forms.ToolStripButton();
@@ -199,54 +197,54 @@
             // 
             // menunew
             // 
-            this.menunew.Image = global::ZXFont.Properties.Resources.Новый;
+            this.menunew.Image = global::ZXFont.Properties.Resources._new;
             this.menunew.Name = "menunew";
             this.menunew.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.menunew.Size = new System.Drawing.Size(172, 22);
+            this.menunew.Size = new System.Drawing.Size(173, 22);
             this.menunew.Text = "Новый";
             this.menunew.Click += new System.EventHandler(this.menunew_Click);
             // 
             // новыйЧистыйToolStripMenuItem
             // 
             this.новыйЧистыйToolStripMenuItem.Name = "новыйЧистыйToolStripMenuItem";
-            this.новыйЧистыйToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.новыйЧистыйToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.новыйЧистыйToolStripMenuItem.Text = "Новый чистый";
             this.новыйЧистыйToolStripMenuItem.Click += new System.EventHandler(this.новыйЧистыйToolStripMenuItem_Click);
             // 
             // menuopen
             // 
-            this.menuopen.Image = global::ZXFont.Properties.Resources.Открыть;
+            this.menuopen.Image = global::ZXFont.Properties.Resources.open;
             this.menuopen.Name = "menuopen";
             this.menuopen.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.menuopen.Size = new System.Drawing.Size(172, 22);
+            this.menuopen.Size = new System.Drawing.Size(173, 22);
             this.menuopen.Text = "Открыть";
             this.menuopen.Click += new System.EventHandler(this.menuopen_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(170, 6);
             // 
             // menusave
             // 
-            this.menusave.Image = global::ZXFont.Properties.Resources.Сохранить;
+            this.menusave.Image = global::ZXFont.Properties.Resources.save;
             this.menusave.Name = "menusave";
             this.menusave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.menusave.Size = new System.Drawing.Size(172, 22);
+            this.menusave.Size = new System.Drawing.Size(173, 22);
             this.menusave.Text = "Сохранить";
             this.menusave.Click += new System.EventHandler(this.menusave_Click);
             // 
             // menusaveas
             // 
             this.menusaveas.Name = "menusaveas";
-            this.menusaveas.Size = new System.Drawing.Size(172, 22);
+            this.menusaveas.Size = new System.Drawing.Size(173, 22);
             this.menusaveas.Text = "Сохранить как";
             this.menusaveas.Click += new System.EventHandler(this.menusaveas_Click);
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(169, 6);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(170, 6);
             // 
             // импортToolStripMenuItem
             // 
@@ -255,7 +253,7 @@
             this.изBMPToolStripMenuItem,
             this.изБинарногоФайлаToolStripMenuItem});
             this.импортToolStripMenuItem.Name = "импортToolStripMenuItem";
-            this.импортToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.импортToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.импортToolStripMenuItem.Text = "Импорт";
             // 
             // изTAPToolStripMenuItem
@@ -285,7 +283,7 @@
             this.вTAPфайлToolStripMenuItem,
             this.вBMPизображениеToolStripMenuItem});
             this.экспортToolStripMenuItem.Name = "экспортToolStripMenuItem";
-            this.экспортToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.экспортToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.экспортToolStripMenuItem.Text = "Экспорт";
             // 
             // вTAPфайлToolStripMenuItem
@@ -305,13 +303,13 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(169, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(170, 6);
             // 
             // menuexit
             // 
             this.menuexit.Name = "menuexit";
             this.menuexit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.menuexit.Size = new System.Drawing.Size(172, 22);
+            this.menuexit.Size = new System.Drawing.Size(173, 22);
             this.menuexit.Text = "Выход";
             this.menuexit.Click += new System.EventHandler(this.menuexit_Click);
             // 
@@ -330,7 +328,7 @@
             // 
             // menuundo
             // 
-            this.menuundo.Image = global::ZXFont.Properties.Resources.Отменить;
+            this.menuundo.Image = global::ZXFont.Properties.Resources.cancel;
             this.menuundo.Name = "menuundo";
             this.menuundo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.menuundo.Size = new System.Drawing.Size(181, 22);
@@ -339,7 +337,7 @@
             // 
             // menuredo
             // 
-            this.menuredo.Image = global::ZXFont.Properties.Resources.Повторить;
+            this.menuredo.Image = global::ZXFont.Properties.Resources.back;
             this.menuredo.Name = "menuredo";
             this.menuredo.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
             this.menuredo.Size = new System.Drawing.Size(181, 22);
@@ -353,7 +351,7 @@
             // 
             // menucut
             // 
-            this.menucut.Image = global::ZXFont.Properties.Resources.Вырезать;
+            this.menucut.Image = global::ZXFont.Properties.Resources.cut;
             this.menucut.Name = "menucut";
             this.menucut.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.menucut.Size = new System.Drawing.Size(181, 22);
@@ -362,7 +360,7 @@
             // 
             // menucopy
             // 
-            this.menucopy.Image = global::ZXFont.Properties.Resources.Копировать;
+            this.menucopy.Image = global::ZXFont.Properties.Resources.copy;
             this.menucopy.Name = "menucopy";
             this.menucopy.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.menucopy.Size = new System.Drawing.Size(181, 22);
@@ -371,7 +369,7 @@
             // 
             // menupaste
             // 
-            this.menupaste.Image = global::ZXFont.Properties.Resources.Вставить;
+            this.menupaste.Image = global::ZXFont.Properties.Resources.insert;
             this.menupaste.Name = "menupaste";
             this.menupaste.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.menupaste.Size = new System.Drawing.Size(181, 22);
@@ -400,7 +398,7 @@
             // 
             // скроллВверхToolStripMenuItem
             // 
-            this.скроллВверхToolStripMenuItem.Image = global::ZXFont.Properties.Resources.up;
+            this.скроллВверхToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("скроллВверхToolStripMenuItem.Image")));
             this.скроллВверхToolStripMenuItem.Name = "скроллВверхToolStripMenuItem";
             this.скроллВверхToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.скроллВверхToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Up)));
@@ -410,7 +408,7 @@
             // 
             // скроллВнизToolStripMenuItem
             // 
-            this.скроллВнизToolStripMenuItem.Image = global::ZXFont.Properties.Resources.down;
+            this.скроллВнизToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("скроллВнизToolStripMenuItem.Image")));
             this.скроллВнизToolStripMenuItem.Name = "скроллВнизToolStripMenuItem";
             this.скроллВнизToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.скроллВнизToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Down)));
@@ -420,7 +418,7 @@
             // 
             // скроллВлевоToolStripMenuItem
             // 
-            this.скроллВлевоToolStripMenuItem.Image = global::ZXFont.Properties.Resources.left;
+            this.скроллВлевоToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("скроллВлевоToolStripMenuItem.Image")));
             this.скроллВлевоToolStripMenuItem.Name = "скроллВлевоToolStripMenuItem";
             this.скроллВлевоToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.скроллВлевоToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Left)));
@@ -430,7 +428,7 @@
             // 
             // скроллВправоToolStripMenuItem
             // 
-            this.скроллВправоToolStripMenuItem.Image = global::ZXFont.Properties.Resources.right;
+            this.скроллВправоToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("скроллВправоToolStripMenuItem.Image")));
             this.скроллВправоToolStripMenuItem.Name = "скроллВправоToolStripMenuItem";
             this.скроллВправоToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.скроллВправоToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Right)));
@@ -490,7 +488,7 @@
             // 
             // очиститьToolStripMenuItem
             // 
-            this.очиститьToolStripMenuItem.Image = global::ZXFont.Properties.Resources.delete;
+            this.очиститьToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("очиститьToolStripMenuItem.Image")));
             this.очиститьToolStripMenuItem.Name = "очиститьToolStripMenuItem";
             this.очиститьToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Delete;
             this.очиститьToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
@@ -515,7 +513,7 @@
             // 
             // toolStripMenuItem8
             // 
-            this.toolStripMenuItem8.Image = global::ZXFont.Properties.Resources.up;
+            this.toolStripMenuItem8.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem8.Image")));
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             this.toolStripMenuItem8.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Up)));
@@ -525,7 +523,7 @@
             // 
             // toolStripMenuItem9
             // 
-            this.toolStripMenuItem9.Image = global::ZXFont.Properties.Resources.down;
+            this.toolStripMenuItem9.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem9.Image")));
             this.toolStripMenuItem9.Name = "toolStripMenuItem9";
             this.toolStripMenuItem9.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Down)));
@@ -535,7 +533,7 @@
             // 
             // toolStripMenuItem10
             // 
-            this.toolStripMenuItem10.Image = global::ZXFont.Properties.Resources.left;
+            this.toolStripMenuItem10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem10.Image")));
             this.toolStripMenuItem10.Name = "toolStripMenuItem10";
             this.toolStripMenuItem10.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Left)));
@@ -545,7 +543,7 @@
             // 
             // toolStripMenuItem11
             // 
-            this.toolStripMenuItem11.Image = global::ZXFont.Properties.Resources.right;
+            this.toolStripMenuItem11.Image = ((System.Drawing.Image)(resources.GetObject("toolStripMenuItem11.Image")));
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
             this.toolStripMenuItem11.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
             | System.Windows.Forms.Keys.Right)));
@@ -560,7 +558,7 @@
             // 
             // жирностьToolStripMenuItem
             // 
-            this.жирностьToolStripMenuItem.Image = global::ZXFont.Properties.Resources.B;
+            this.жирностьToolStripMenuItem.Image = global::ZXFont.Properties.Resources.bold;
             this.жирностьToolStripMenuItem.Name = "жирностьToolStripMenuItem";
             this.жирностьToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
             this.жирностьToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
@@ -569,7 +567,7 @@
             // 
             // наклонToolStripMenuItem
             // 
-            this.наклонToolStripMenuItem.Image = global::ZXFont.Properties.Resources.I;
+            this.наклонToolStripMenuItem.Image = global::ZXFont.Properties.Resources.italic;
             this.наклонToolStripMenuItem.Name = "наклонToolStripMenuItem";
             this.наклонToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
             this.наклонToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
@@ -583,7 +581,7 @@
             // 
             // параметрыШрифтаToolStripMenuItem
             // 
-            this.параметрыШрифтаToolStripMenuItem.Image = global::ZXFont.Properties.Resources.Настройки;
+            this.параметрыШрифтаToolStripMenuItem.Image = global::ZXFont.Properties.Resources.properties;
             this.параметрыШрифтаToolStripMenuItem.Name = "параметрыШрифтаToolStripMenuItem";
             this.параметрыШрифтаToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
             this.параметрыШрифтаToolStripMenuItem.Size = new System.Drawing.Size(242, 22);
@@ -604,7 +602,7 @@
             // 
             this.текстовыйГенераторToolStripMenuItem.Image = global::ZXFont.Properties.Resources.Code;
             this.текстовыйГенераторToolStripMenuItem.Name = "текстовыйГенераторToolStripMenuItem";
-            this.текстовыйГенераторToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.текстовыйГенераторToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.текстовыйГенераторToolStripMenuItem.Text = "Текстовый генератор";
             this.текстовыйГенераторToolStripMenuItem.Click += new System.EventHandler(this.текстовыйГенераторToolStripMenuItem_Click);
             // 
@@ -612,7 +610,7 @@
             // 
             this.калькуляторPOKEToolStripMenuItem1.Image = global::ZXFont.Properties.Resources.Poke;
             this.калькуляторPOKEToolStripMenuItem1.Name = "калькуляторPOKEToolStripMenuItem1";
-            this.калькуляторPOKEToolStripMenuItem1.Size = new System.Drawing.Size(192, 22);
+            this.калькуляторPOKEToolStripMenuItem1.Size = new System.Drawing.Size(191, 22);
             this.калькуляторPOKEToolStripMenuItem1.Text = "Калькулятор POKE";
             this.калькуляторPOKEToolStripMenuItem1.Click += new System.EventHandler(this.калькуляторPOKEToolStripMenuItem1_Click);
             // 
@@ -620,7 +618,7 @@
             // 
             this.тестШрифтаToolStripMenuItem.Name = "тестШрифтаToolStripMenuItem";
             this.тестШрифтаToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-            this.тестШрифтаToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            this.тестШрифтаToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.тестШрифтаToolStripMenuItem.Text = "Тест шрифта";
             this.тестШрифтаToolStripMenuItem.Click += new System.EventHandler(this.тестШрифтаToolStripMenuItem_Click);
             // 
@@ -640,71 +638,55 @@
             // CodeInHex
             // 
             this.CodeInHex.Name = "CodeInHex";
-            this.CodeInHex.Size = new System.Drawing.Size(293, 22);
+            this.CodeInHex.Size = new System.Drawing.Size(294, 22);
             this.CodeInHex.Text = "Отображать коды в HEX";
             this.CodeInHex.Click += new System.EventHandler(this.кодыВHEXToolStripMenuItem_Click);
             // 
             // Grid
             // 
             this.Grid.Name = "Grid";
-            this.Grid.Size = new System.Drawing.Size(293, 22);
+            this.Grid.Size = new System.Drawing.Size(294, 22);
             this.Grid.Text = "Отображать сетку";
             this.Grid.Click += new System.EventHandler(this.сеткаToolStripMenuItem_Click);
             // 
             // Borders
             // 
             this.Borders.Name = "Borders";
-            this.Borders.Size = new System.Drawing.Size(293, 22);
+            this.Borders.Size = new System.Drawing.Size(294, 22);
             this.Borders.Text = "Отображать ограничивающие контуры";
             this.Borders.Click += new System.EventHandler(this.ограничивающиеКонторыToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(290, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(291, 6);
             // 
             // параметрыОграничивающихКонтуровToolStripMenuItem
             // 
             this.параметрыОграничивающихКонтуровToolStripMenuItem.Name = "параметрыОграничивающихКонтуровToolStripMenuItem";
-            this.параметрыОграничивающихКонтуровToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.параметрыОграничивающихКонтуровToolStripMenuItem.Size = new System.Drawing.Size(294, 22);
             this.параметрыОграничивающихКонтуровToolStripMenuItem.Text = "Параметры ограничивающих контуров";
             this.параметрыОграничивающихКонтуровToolStripMenuItem.Click += new System.EventHandler(this.параметрыОграничивающихКонтуровToolStripMenuItem_Click);
             // 
             // цветаToolStripMenuItem
             // 
             this.цветаToolStripMenuItem.Name = "цветаToolStripMenuItem";
-            this.цветаToolStripMenuItem.Size = new System.Drawing.Size(293, 22);
+            this.цветаToolStripMenuItem.Size = new System.Drawing.Size(294, 22);
             this.цветаToolStripMenuItem.Text = "Цвета";
             this.цветаToolStripMenuItem.Click += new System.EventHandler(this.цветаToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuhelp,
-            this.toolStripSeparator4,
             this.menuabout});
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.справкаToolStripMenuItem.Text = "Справка";
             // 
-            // menuhelp
-            // 
-            this.menuhelp.Image = global::ZXFont.Properties.Resources.Справка;
-            this.menuhelp.Name = "menuhelp";
-            this.menuhelp.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.menuhelp.Size = new System.Drawing.Size(198, 22);
-            this.menuhelp.Text = "Просмотр справки";
-            this.menuhelp.Click += new System.EventHandler(this.menuhelp_Click);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(195, 6);
-            // 
             // menuabout
             // 
             this.menuabout.Name = "menuabout";
-            this.menuabout.Size = new System.Drawing.Size(198, 22);
+            this.menuabout.Size = new System.Drawing.Size(180, 22);
             this.menuabout.Text = "О программе";
             this.menuabout.Click += new System.EventHandler(this.menuabout_Click);
             // 
@@ -748,7 +730,7 @@
             // toolnew
             // 
             this.toolnew.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolnew.Image = global::ZXFont.Properties.Resources.Новый;
+            this.toolnew.Image = global::ZXFont.Properties.Resources._new;
             this.toolnew.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolnew.Name = "toolnew";
             this.toolnew.Size = new System.Drawing.Size(23, 22);
@@ -758,7 +740,7 @@
             // toolopen
             // 
             this.toolopen.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolopen.Image = global::ZXFont.Properties.Resources.Открыть;
+            this.toolopen.Image = global::ZXFont.Properties.Resources.open;
             this.toolopen.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolopen.Name = "toolopen";
             this.toolopen.Size = new System.Drawing.Size(23, 22);
@@ -768,7 +750,7 @@
             // toolsave
             // 
             this.toolsave.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolsave.Image = global::ZXFont.Properties.Resources.Сохранить;
+            this.toolsave.Image = global::ZXFont.Properties.Resources.save;
             this.toolsave.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolsave.Name = "toolsave";
             this.toolsave.Size = new System.Drawing.Size(23, 22);
@@ -783,7 +765,7 @@
             // toolcut
             // 
             this.toolcut.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolcut.Image = global::ZXFont.Properties.Resources.Вырезать;
+            this.toolcut.Image = global::ZXFont.Properties.Resources.cut;
             this.toolcut.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolcut.Name = "toolcut";
             this.toolcut.Size = new System.Drawing.Size(23, 22);
@@ -793,7 +775,7 @@
             // toolcopy
             // 
             this.toolcopy.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolcopy.Image = global::ZXFont.Properties.Resources.Копировать;
+            this.toolcopy.Image = global::ZXFont.Properties.Resources.copy;
             this.toolcopy.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolcopy.Name = "toolcopy";
             this.toolcopy.Size = new System.Drawing.Size(23, 22);
@@ -803,7 +785,7 @@
             // toolpaste
             // 
             this.toolpaste.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolpaste.Image = global::ZXFont.Properties.Resources.Вставить;
+            this.toolpaste.Image = global::ZXFont.Properties.Resources.insert;
             this.toolpaste.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolpaste.Name = "toolpaste";
             this.toolpaste.Size = new System.Drawing.Size(23, 22);
@@ -818,7 +800,7 @@
             // toolundo
             // 
             this.toolundo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolundo.Image = global::ZXFont.Properties.Resources.Отменить;
+            this.toolundo.Image = global::ZXFont.Properties.Resources.cancel;
             this.toolundo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolundo.Name = "toolundo";
             this.toolundo.Size = new System.Drawing.Size(23, 22);
@@ -828,7 +810,7 @@
             // toolredo
             // 
             this.toolredo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolredo.Image = global::ZXFont.Properties.Resources.Повторить;
+            this.toolredo.Image = global::ZXFont.Properties.Resources.back;
             this.toolredo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolredo.Name = "toolredo";
             this.toolredo.Size = new System.Drawing.Size(23, 22);
@@ -843,7 +825,7 @@
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::ZXFont.Properties.Resources.Настройки;
+            this.toolStripButton1.Image = global::ZXFont.Properties.Resources.properties;
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
@@ -858,41 +840,41 @@
             // toolStripButton2
             // 
             this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = global::ZXFont.Properties.Resources.up;
+            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
             this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton2.Name = "toolStripButton2";
             this.toolStripButton2.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton2.Text = "Скролл вверх (Up)";
+            this.toolStripButton2.Text = "Скролл вверх (Ctrl+Up)";
             this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
             // 
             // toolStripButton3
             // 
             this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = global::ZXFont.Properties.Resources.down;
+            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
             this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton3.Name = "toolStripButton3";
             this.toolStripButton3.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton3.Text = "Скролл вниз (Down)";
+            this.toolStripButton3.Text = "Скролл вниз (Ctrl+Down)";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
             // toolStripButton4
             // 
             this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = global::ZXFont.Properties.Resources.left;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
             this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton4.Name = "toolStripButton4";
             this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "Скролл влево (Left)";
+            this.toolStripButton4.Text = "Скролл влево (Ctrl+Left)";
             this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
             // 
             // toolStripButton5
             // 
             this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = global::ZXFont.Properties.Resources.right;
+            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
             this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton5.Name = "toolStripButton5";
             this.toolStripButton5.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton5.Text = "Скролл вправо (Right)";
+            this.toolStripButton5.Text = "Скролл вправо (Ctrl+Right)";
             this.toolStripButton5.Click += new System.EventHandler(this.toolStripButton5_Click);
             // 
             // toolStripSeparator8
@@ -958,7 +940,7 @@
             // toolStripButton10
             // 
             this.toolStripButton10.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton10.Image = global::ZXFont.Properties.Resources.delete;
+            this.toolStripButton10.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton10.Image")));
             this.toolStripButton10.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton10.Name = "toolStripButton10";
             this.toolStripButton10.Size = new System.Drawing.Size(23, 22);
@@ -973,7 +955,7 @@
             // toolStripButton12
             // 
             this.toolStripButton12.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton12.Image = global::ZXFont.Properties.Resources.B;
+            this.toolStripButton12.Image = global::ZXFont.Properties.Resources.bold;
             this.toolStripButton12.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton12.Name = "toolStripButton12";
             this.toolStripButton12.Size = new System.Drawing.Size(23, 22);
@@ -983,7 +965,7 @@
             // toolStripButton13
             // 
             this.toolStripButton13.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton13.Image = global::ZXFont.Properties.Resources.I;
+            this.toolStripButton13.Image = global::ZXFont.Properties.Resources.italic;
             this.toolStripButton13.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton13.Name = "toolStripButton13";
             this.toolStripButton13.Size = new System.Drawing.Size(23, 22);
@@ -1397,8 +1379,6 @@
         private System.Windows.Forms.ToolStripButton toolsave;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripMenuItem справкаToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem menuhelp;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem menuabout;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

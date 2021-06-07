@@ -274,6 +274,22 @@
     <None Include="Resources\I.png" />
     <None Include="Resources\Настройки.ico" />
     <None Include="Resources\ZX Font.png" />
+    <None Include="Resources\back.png" />
+    <None Include="Resources\cancel.png" />
+    <None Include="Resources\copy.png" />
+    <None Include="Resources\cut.png" />
+    <None Include="Resources\delete.png" />
+    <None Include="Resources\insert.png" />
+    <None Include="Resources\new.png" />
+    <None Include="Resources\open.png" />
+    <None Include="Resources\save.png" />
+    <None Include="Resources\down.png" />
+    <None Include="Resources\left.png" />
+    <None Include="Resources\right.png" />
+    <None Include="Resources\up.png" />
+    <None Include="Resources\bold.png" />
+    <None Include="Resources\italic.png" />
+    <None Include="Resources\properties.png" />
     <Content Include="ZX Font.ico" />
     <Content Include="История.txt" />
   </ItemGroup>

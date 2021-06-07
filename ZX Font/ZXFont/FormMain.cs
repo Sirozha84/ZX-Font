@@ -146,12 +146,6 @@ namespace ZXFont
             DrawSymbol();
             DrawDocument();
         }
-        //Вызов справки
-        private void menuhelp_Click(object sender, EventArgs e)
-        {
-            try { HelpClose(); Help.StartInfo.FileName = "help.chm"; Help.Start(); }
-            catch { Program.Error("Файл справки не найден."); } 
-        }
         //Закрытие программы
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
